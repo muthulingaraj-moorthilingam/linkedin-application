@@ -1,0 +1,126 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: -apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Fira Sans,Ubuntu,Oxygen,Oxygen Sans,Cantarell,Droid Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Lucida Grande,Helvetica,Arial,sans-serif;
+}
+.clearfix::after{
+	content: "";
+	display: block;
+	clear: both;
+}
+.header{
+	background-color: #283E49;
+}
+.container{
+	width: 1144px;
+	margin: 0 auto;
+}
+#left-side{
+	float: left;
+}
+.logo{
+	float: left;
+	height: 34px;
+	margin: 9px 0px;
+	margin-right: 12px;
+}
+.img{
+	display: inline-block;
+	height: 34px;
+}
+#search{
+	float: left;
+	position: relative;
+	width: 700px;
+}
+#search_bar{
+	float: left;
+	border: 1px solid transparent;
+	margin: 9px 0px;
+	background-color: #e1e9ee;
+	border-radius: 2px;
+	width: 284px;
+	
+}
+.icon{
+	float: left;
+	padding-left: 5px;
+    display: inline-block;
+    width: 20px;
+    height: 32px;
+    text-align: center;
+    line-height: 30px;
+    color: #283E49;
+    font-size: 13px;
+    font-weight: 600;
+    padding-right: 3px;
+}
+.icon img{
+	margin-top: 10px;
+}
+.input{
+	float: left;
+}
+
+.ip-bar{
+	height: 32px;
+    width: 240px;
+    border: none;
+    outline: none;
+    background: #E1E9EE;
+    font-size: 14px;
+    font-weight: 400;
+    color: #364B55;
+    float: left;
+}
+::placeholder{
+	color: #364B55;
+}
+.search-icon{
+	height: 32px;
+    display: inline-block;
+    float: left;
+    width: 36px;
+    text-align: center;
+    line-height: 31px;
+    display: none;
+    color: #0073b1;
+}
+.focus{
+	border:1px solid  #0073b1;
+	border-radius: 2px;
+}
+.ip-bar:focus{
+	background-color: #fff;
+	padding-left: 7px;
+	
+}
+#search-filter{
+	position: absolute;
+	top: 46px;
+	background-color: #fff;
+	border:1px solid #C1C1C1;
+}
+#content{
+	margin-left: 8px;
+}
+.content-a{
+	display: inline-block;
+    text-align: center;
+    padding: 3px 10px;
+    border: 1px solid #283e4a;
+    color: #283e4a;
+    border-radius: 57px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 900;
+    height: auto;
+}
+#content li{
+	list-style: none;
+	padding:10px 4px;
+	float: left;
+}
+#content li:hover{
+	background-color: #C1C1C1;
+}
