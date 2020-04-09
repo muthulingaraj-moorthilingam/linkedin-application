@@ -13,6 +13,7 @@ body{
 }
 .header{
 	background-color: #283E49;
+	position: relative;
 }
 .container{
 	width: 1144px;
@@ -20,16 +21,15 @@ body{
 }
 #left-side{
 	float: left;
+	padding: 9px 0px;
 }
 .logo{
 	float: left;
 	height: 34px;
-	margin: 9px 0px;
 	margin-right: 12px;
 }
 .img{
 	display: inline-block;
-	height: 34px;
 }
 #search-main{
 	float: left;
@@ -44,11 +44,9 @@ body{
     font-size: 14px;
     outline: none;
     height: 32px;
-    margin: 9px 0px;
     padding: 0px 8px 0px 28px;
     font-weight: 400;
     background: #E1E9EE;
-    
     border:1px solid #283e4a;
     border-radius: 2px;
 
@@ -63,7 +61,7 @@ body{
     text-align: center;
     line-height: 35px;
     position: absolute;
-    top: 9px;
+    top: 0px;
     left: 0px;
     padding-left: 2px;
 }
@@ -83,15 +81,15 @@ body{
     color: #007ec0;
     line-height: 33px;
     position: absolute;
-    top: 10px;
+    top: 1px;
     right: 0px;
     font-size: 19px;
     display: none;
 }
 #search-filter{
 	position: absolute;
-	top: 46px;
-	width: 780px;
+	top: 38px;
+	width: 790px;
 	background-color: #fff;
 	border:1px solid #d9d9d9;
 	display: none;
@@ -102,7 +100,7 @@ body{
 .content-a{
 	display: inline-block;
     text-align: center;
-    padding: 5px 10px;
+    padding: 2px 10px;
     border: 1px solid #596e7c;
     color: #596e7c;
     border-radius: 57px;
@@ -123,46 +121,63 @@ body{
 	background-color: #e6e9ec;
 }
 .content-a:hover{
-	padding: 4px 9px 4px 9px;
+	padding: 1px 9px 1px 9px;
 	border:2px solid #596e7c;
 }
 #right-side{
 	float: right;
 }
-.icon-navbar,.icon-navbar-usr{
-	float: left;
-    text-align: center;
-    position: relative;
+.icon-navbar{
+	list-style: none;
 }
-.icon-a,.icon-a-user{
+.icon-li{
+	display: block;
+	text-align:center;
+	float: left;
+	position: relative;
+}
+.li-a{
+	display: block;
+    text-decoration: none;
+    margin-top: 9px;
+    text-align: center;
+     border-bottom: 2px solid transparent;
+     position: relative;
+}
+.li-img{
 	display: inline-block;
-	text-align: center;
-	margin-top: 8px;
-	text-decoration:none;
-	height: 42px;
-	width: 80px;
+	width: 24px;
+	height: 22px;
+	position: relative;
 }
 .icon-img{
+	width: 20px;
+	height: 18px;
+}
+.icon-count{
 	display: inline-block;
-    width: 20px;
-    height: 18px;
-    color: #c7d1d8;
+    width: 12px;
+    height: 12px;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+    top: -7px;
+    right: -3px;
+    border: 2px solid #283E49;
 }
 .icon-name{
-	display: block;
+	color: #c7d1d8;
+    display: block;
     font-size: 12px;
     font-weight: 400;
-    color: #c7d1d8;
-    margin-left: 3px;
-    margin-top: 3px;
+    line-height: 16px;
+    width: 77px;
+    padding: 1px 1px 2px 2px;
 }
-.icon-a:focus {
-	border-bottom: 2px solid #fff;
+.li-a:hover{
+	border-bottom-color: #fff;
 }
-.icon-a:focus .icon-name{
-	color: #fff;
-}
-.icon-a:hover .icon-name{
+.li-a:hover .icon-name{
 	color: #fff;
 }
 .user{
@@ -171,11 +186,34 @@ body{
     height: 22px;
     border: 1px solid #c7d1d8;
     border-radius: 50%;
-    margin-top: 2px;
     background-image: url("../image/account.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 22px;
+}
+.mr{
+	width: 80px;
+    position: relative;
+    line-height: 8px;
+}
+.mr-s{
+	margin-right: 12px;
+    display: inline-block;
+    font-size: 12px;
+    color: #c7d1d8;
+    font-weight: 400;
+    line-height: 12px;
+}
+.ma{
+	margin-right: 21px;
+}
+.mr-a{
+	display: inline-block;
+    font-size: 10px;
+    position: absolute;
+    top: -5px;
+    right: 21px;
+    color: #c7d1d8;
 }
 .icon-name-user{
 	display: block;
@@ -187,52 +225,77 @@ body{
     color: #c7d1d8;
 }
 .down{
-	font-size: 11px;
+	font-size: 10px;
     position: absolute;
-    top: 31px;
-    right: 21px;
+    top: 22px;
+    right: 22px;
     color: #c7d1d8;
 }
-.us:hover .icon-name-user,.us:hover .down{
+.us{
+	border-bottom: none;
+}
+.me{
+	padding:0;
+	line-height: 11px;
+}
+.us:hover .icon-name-user,.us:hover .down,.ho-a:hover .wo-sp{
+	color: #fff;
+}
+.more:hover{
+	color: #fff;
+}
+.li-a:hover .mr-s{
+	color: #fff;
+}
+.li-a:hover .mr-a{
 	color: #fff;
 }
 #user-details{
 	position: absolute;
 	width: 288px;
-    border: 1px solid #fff;
     top: 62px;
-    right: 19px;
+    right: 17px;
     box-shadow: 0px 2px 0px 0px rgba(230,230,230,1);
+    font-size: 16px;
+    font-weight: 600
 }
 #user-profile{
-	text-align:left;
-	position: relative;
-	padding-bottom: 9px;
+	padding:21px 12px 17px 12px;
+	cursor: pointer;
+}
+.img-user{
+	float: left;
+    width: 56px;
+    height: 58px;
+    padding-right: 8px;
 }
 #usp-img{
 	width: 53px;
     height: 53px;
     border: 2px solid #fff;
     border-radius: 50%;
-    margin-left: 10px;
-    margin-top: 18px;
     box-shadow: 0px 3px 12px 3px rgba(230,230,230,1);
 }
+.name-user{
+	float: left;
+	text-align: left;
+}
 #user-name{
-	position: absolute;
-    top: 35px;
-    left: 82px;
-    display: block;
-    width: 197px;
-    font-size: 19px;
+    display: inline-block;
+    width: 200px;
+    font-size: 17px;
     font-weight: 600;
+    line-height:24px;
 }
 #user-des{
-	display: inline-block;
-    margin-left: 12px;
+	display: block;
 	font-weight: 400;
 	font-size: 14px;
 	color:  #666666;
+	padding-bottom: 2px;
+}
+.buttom{
+	padding:4px 0px;
 }
 .viewprofile{
 	display: block;
@@ -241,15 +304,17 @@ body{
     text-decoration: none;
     font-size: 16px;
     font-weight: 600;
-    padding: 4px 12px;
-    margin:4px 12px;
+    padding: 7px 8px;
+}
+#list{
+	background:#fff;
 }
 .list-a{
 	display: block;
     text-decoration: none;
     text-align: left;
     padding-left: 11px;
-    padding: 12px;
+    padding: 10px;
    	color: #666666;
     font-size: 14px;
     font-weight: 600;
@@ -267,6 +332,9 @@ body{
 .mart,.pa{
 	margin-top: 4px
 }
+.mab{
+	padding-bottom: 16px;
+}
 .marb{
 	margin-bottom: 4px
 }
@@ -283,9 +351,122 @@ body{
 	background-color: #e2f5fd;
 }
 .line{
-	border-right: 2px solid #596e7c;
-    height: 52px;
+	border-left: 1px solid #596e7c;
+	height:52px;
 }
 .us:focus ~ #user-details{
 	display: block;
+}
+.more{
+	width: 24px;
+    height: 24px;
+    margin: 0 auto;
+    margin-bottom: 2px;
+    position: relative;
+}
+.more-span1,.more-span2,.more-span3{
+	width: 4px;
+    height: 4px;
+    display: inline-block;
+    background-color: #C7D1D8;
+    float: left;
+    margin:10px 0px 0px 3px;
+}
+.more-span1::before,.more-span2::before,.more-span3::before{
+	content: "";
+	width: 4px;
+    height: 4px;
+    display: inline-block;
+    background-color: #C7D1D8;
+     position: absolute;
+
+  
+}
+.more-span1::after,.more-span2::after,.more-span3::after{
+	content: "";
+	width: 4px;
+    height: 4px;
+    display: inline-block;
+    background-color:#C7D1D8;
+     position: absolute;
+}
+.co{
+	right: 17px;
+    color: #fff;
+}
+.more-span1::after{
+	bottom: 3px;
+    left: 3px;
+}
+.more-span2::after{
+	bottom: 3px;
+    left: 10px;
+}
+.more-span3::after{
+	bottom: 3px;
+    left: 17px;
+}
+.more-span1::before{
+	top: 3px;
+    left: 3px;
+}
+.more-span2::before{
+	top: 3px;
+    left: 10px;
+}
+.more-span3::before{
+	top: 3px;
+    left: 17px;
+}
+.wo-sp{
+	top: 21px;
+    left: 51px;
+    font-size: 10px;
+}
+.ho-a{
+	border-bottom:none;
+}
+.free-li{
+	width: 100px;
+}
+.more:hover .more-span1, .more:hover .more-span2,.more:hover .more-span3{
+	background-color:#fff;
+}
+.more:hover .more-span1::before,.more:hover .more-span2::before,.more:hover .more-span3::before{
+	background-color:#fff;
+}
+.more:hover .more-span1::after,.more:hover .more-span2::after,.more:hover .more-span3::after{
+	background-color:#fff;
+}
+.free{
+	padding:11px 0px;
+}
+.free-a{
+	text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 400;
+    color: #dccea4;
+    width: 100px;
+    display: inline-block;
+}
+.s1{
+	display: inline-block;
+    border-bottom: 1px solid transparent;
+}
+.s2{
+	padding-top: 2px;
+    display: inline-block;
+    border-bottom: 1px solid transparent;
+}
+.free-a:hover .s1,.free-a:hover .s2{
+	border-bottom-color:#dccea4;
+}
+#side-menu{
+	position: absolute;
+	right: 0px;
+	width: 380px;
+	height: 100%;
+	background:red;
+	/*background-color: #F3F6F8;*/
 }
