@@ -15,7 +15,6 @@ document.getElementById("ip").addEventListener("blur",function(){
 		lefticon.style.display="inline-block";
 		//document.getElementById("search").classList.remove("input_focus");
 		document.getElementById("search-filter").style.display="none";
-		console.log("mut");
 });
 document.getElementById("linkedin").addEventListener("click",func);
 
@@ -29,4 +28,5 @@ function func(event){
 			user.style.display="none";
 		}
 	}
+
 }
