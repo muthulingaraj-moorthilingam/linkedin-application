@@ -467,14 +467,19 @@ body{
 .free-a:hover .s1,.free-a:hover .s2{
 	border-bottom-color:#dccea4;
 }
-
-.main-side-menu{
-   width: 100%;
+#main-side-menu{
     height: 100vh;
-    position: relative;
-    margin-top: 52px;
+     margin-top: 52px;
+}
+.main-side-menu{
+    width: 100%;
+   
+    position: fixed;
+   
     background-color: rgba(61, 61, 61,1);
-
+}
+.nav{
+    width: 317px;
 }
 #side-menu{
 	position: absolute;
@@ -482,14 +487,15 @@ body{
     transition: 0.5s;
     z-index: 10;
     width: 0;
+    height: 100%;
     overflow-x: hidden;
     background-color: #F3F6F8;
-    padding-top: 10px;
 }
 .stage1{
     position: relative;
 }
 .button-span{
+    display: none;
     width: 40px;
     height: 40px;
     text-align: center;
@@ -499,7 +505,175 @@ body{
     background-size: 15px;
     cursor: pointer;
     border-radius: 50%;
+    position: absolute;
+    right: 8px;
+    top: 12px;
 }
 .button-span:hover{
     background-color: #d6d6d6;
+}
+#inner-block{
+    margin-top:48px;
+    padding: 16px 24px 32px 24px;
+    position: fixed;
+    overflow: auto;
+    max-height:472px;
+    overflow-x: hidden;
+}
+.view{
+    border: 1px solid #D9D9D9;
+    border-radius: 4px;
+    background: #fff;
+    margin-bottom: 12px;
+}
+.name{
+    font-size: 16px;
+    font-weight: 600;
+    padding: 16px 24px;
+    border-bottom: 1px solid #D9D9D9;
+    line-height: 23px;
+}
+.products{
+    padding-top: 9px;
+}
+.products-ul{
+    list-style:none;
+    padding: 8px 0px 8px 20px;
+}
+.products-li{
+    float: left;
+    padding: 4px 0px 0px 0px;
+    margin-bottom: 8px;
+    width: 70px;
+    text-align: center;
+    margin-right:3.5px;
+}
+.products-a{
+   display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    padding-top: 4px;
+}
+.products-icon{
+    display: inline-block;
+    padding: 9px 6px;
+    border: 1px solid transparent;
+    box-shadow: 0px 0px 4px rgba(0,0,0,.15);
+    border-radius: 4px;
+    line-height: 12px;
+}
+.bg-img{
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    display: block;
+    border: 1px solid transparent;
+     box-shadow: 0px 0px 4px rgba(0,0,0,.15);
+    border-radius: 4px;
+    margin: auto;
+}
+.learning{
+    background-image: url(../image/learn.png);
+    background-position-x: 5.5px;
+}
+.insights{
+     background-image: url(../image/insights.png);
+     background-position-x: 7.5px;
+}
+.postajob{
+     background-image: url(../image/postajob.png);
+     background-position-y: 7px;
+}
+.advertise{
+    background-image: url(../image/advertise.png);
+    background-position: 8px;
+    background-position-y: 5px;
+}
+.groups{
+    background-image: url(../image/groups.png);
+    background-position-x: 6.5px;
+}
+.profinder{
+    background-image: url(../image/profinder.png);
+    background-position-x: 8px;
+}
+.salary{
+    background-image: url(../image/salary.png);
+        background-position-x: 5.5px;
+}
+.slideshare{
+    background-image: url(../image/slideshare.png);
+    background-position-x: 1.5px;   
+    background-position-y: 7px;
+}
+.p-icon-name{
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    padding-top: 6px;
+    color: #575858;
+    line-height: 15px;
+}
+.products-a:hover .products-icon{
+    border-color:#d7d7d7; 
+}
+.second-view{
+    border: 1px solid #D9D9D9;
+    border-radius: 4px;
+    background: #fff;
+}
+.second-view-ul{
+    list-style: none;
+    padding: 8px 0px;
+}
+.second-view-a{
+    display: block;
+    padding: 8px 24px;
+    text-decoration: none;
+    color: #000;
+}
+.second-view-sp{
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    line-height: 24px;
+}
+.second-view-div{
+    font-size: 14px;
+    font-weight: 400;
+    color: #575858;
+    line-height: 19px;
+}
+.second-view-a:hover,.last:hover{
+    background-color: #cdcfd2;
+}
+.last{
+    border-top: 1px solid #D9D9D9;
+    border-bottom: none;
+    margin-bottom: 4px;
+    cursor: pointer;
+    position: relative;
+    padding: 16px;
+}
+.plus{
+    display: inline-block;
+    width: 2px;
+    height: 12px;
+    background-color: #000;
+    position: absolute;
+    right: 92px;
+    top: 19px;
+}
+.plus::after{
+    content: "";
+     display: inline-block;
+    width: 12px;
+    height: 2px;
+    background-color: #000;
+    position: absolute;
+    right: -5px;
+    top: 5px;
 }
