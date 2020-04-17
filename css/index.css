@@ -15,7 +15,7 @@ body{
 	background-color: #283E49;
     position: fixed;
     top: 0px;
-    z-index: 40;
+    z-index: 1600;
     width: 100%;
 }
 .container{
@@ -475,11 +475,12 @@ body{
     width: 100%;
     height: 100%;
     position: fixed;
-    z-index: 100;
-    /*background-color: rgba(61, 61, 61,1);*/
+    z-index: 1000;
     background-color: rgba(0,0,0,1);
     opacity: 70%;
-
+}
+.overlay-second{
+    z-index: 1100;
 }
 .nav{
     width: 317px;
@@ -494,7 +495,7 @@ body{
 	position:fixed;
 	right: -380px;
     transition: 0.5s;
-    z-index: 150;
+    z-index: 1500;
     width: 380px;
     height: calc(100vh - 52px);
     overflow-x: hidden;
@@ -696,7 +697,6 @@ body{
 }
 #main-contant-page{
    position: relative;
-    z-index: 39;
     width: 1142px;
     padding: 0px 30px;
     margin: 0 auto;
@@ -1060,6 +1060,263 @@ body{
     margin-left: 25px;
     margin-bottom: 24px;
 }
+
+#start-a-post-overlay{
+    margin-bottom: 8px;
+    border:1px solid rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 1050;
+}
+#start-a-post-inner{
+    width: 552px;
+    
+    background: #fff;
+}
+.start-head{
+    padding: 5px 16px 5px 24px;
+    background-color: #006bb2;
+    display: flex;
+    justify-content: space-between;
+}
+.start-h2{
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+    line-height: 39px;
+}
+.start-cross{
+    width: 40px;
+    height: 40px;
+    background-image: url(../image/cross.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 11px;
+    border-radius: 50%;
+    cursor:pointer;
+}
+.start-cross:hover{
+    background-color:rgba(256,256,256,0.2);
+}
+.start-a-post-btm{
+    padding: 12px 24px;
+    display: flex;
+}
+.user-image{
+    width: 44px;
+    height: 44px;
+    background-image: url(../image/user.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 34px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    background-position-y: 3px;
+}
+.user-fl-name{
+    margin-left: 4px;
+    padding-left: 4px;
+}
+#name-of-user{
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    color: rgba(0,0,0,0.9);
+}
+.type-post{
+   border: 1px solid rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+    width: max-content;
+    padding: 2px 9px;
+    margin-right: 4px;
+    display: flex;
+    border-radius: 2px;
+    margin-top: 2px;
+    color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    line-height: 18px;
+}
+.fa-globe{
+    display: inline-block;
+    font-size: 14px;
+    padding-top: 2px;
+}
+.type-pst-name{
+    display: inline-block;
+    padding: 0px 4px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+}
+.fa-caret-down{
+    line-height: 19px;
+    display: inline-block;
+    font-size: 19px;
+}
+.type-post:hover{
+    background-color: #f3f3f3;
+    padding: 1px 8px;
+    border:2px solid #000;
+    color: #000;
+    transition: 0.3s;
+}
+.text-area{
+    min-height: 222px;
+    height: 222px;
+}
+.text-margin{
+    margin-left: 24px;
+}
+#text-area{
+    resize: none;
+    overflow-y: scroll;
+    outline: none;
+    min-height: 222px;
+    width: 100%;
+    border: none;
+    font-size: 18px;
+    font-weight: 400;
+}
+#textarea:placeholder{
+    color: rgba(0,0,0,0.75);
+}
+.add-hashtag{
+    display: flex;
+    padding: 12px 24px 4px 16px;
+    line-height: 30px;
+}
+#add-hashtag{
+    color: rgb(0, 115, 177);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0px 8px;
+    margin-right: 4px;
+}
+.hash-help{
+    margin-left: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
+}
+#add-hashtag:hover{
+    background-color: #e2f5fd;
+    border-radius: 3px;
+}
+.share-box{
+    padding: 12px 24px 12px 16px;
+    display: flex;
+    justify-content: space-between;
+}
+.media-box{
+    display: flex;
+    position: relative;
+}
+.media-plus{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 16px;
+}
+.media-sp{
+    display: inline-block;
+    width: 2px;
+    height: 18px;
+    background: rgba(0, 0, 0, 0.6);
+    margin: 11px;
+}
+.media-sp::before{
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 19px;
+    left: 11px;
+}
+.triangle{
+    content: "";
+    display: block;
+    background-color: #E9E9E9;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+    position: absolute;
+    left: 26px;
+    top: -8px;
+}
+#teammate{
+    padding: 12px 24px;
+    background: #E9E9E9;
+    position: relative;
+    display: flex;
+}
+#celebrte-a-team{
+    width: 244px;
+    padding: 4px;
+    display: block;
+    margin: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    background: #fff;
+    border-radius: 20px;
+    height: 27px;
+    cursor: pointer;
+}
+#celebrte-a-team:hover{
+    color: rgb(0, 115, 177);
+}
+.media-plus:hover{
+    background-color: #f3f3f3;
+}
+.media-plus:hover .media-sp{
+    background-color: #000;
+}
+.camera-p img{
+    margin-top: 11px;
+}
+.vedio{
+    background-position: center;
+    background-image: url(../image/vedio.png);
+    background-repeat: no-repeat;
+}
+.document{
+     background-position: center;
+     background-repeat: no-repeat;
+    background-image: url(../image/document.png);
+}
+#post{
+    font-size: 16px;
+    font-weight: 600;
+    padding: 6px 12px;
+    height: 20px;
+    margin-top: 5px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    cursor: pointer;
+    color: #fff;
+    background: #006bb2;
+    opacity: 20%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #start-a-post{
     width: 550px;
     border-radius:3px;
@@ -1390,6 +1647,18 @@ body{
     font-size: 12px;
     font-weight: 400;
     text-align: center;
+    line-height: 24px;
+}
+.copy-right img{
+    position: relative;
+    top: 3px;
+}
+.text{
+    display: inline-block;
+    position: relative;
+    top: 0px;
+    font-size: 12px;
+    font-weight: 400;
 }
 .footer-dp{
     padding: 4px 0px;

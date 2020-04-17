@@ -29,6 +29,15 @@ var business_icon=document.getElementById("business i");
 var privacy_block=document.getElementById("privacy-block");
 var privacy_icon=document.getElementById("privacy i")
 
+var teammate=document.getElementById("teammate");
+var text=document.getElementById("text-area");
+
+var start_a_post=document.getElementById("start-a-post");
+var sap_orly=document.getElementById("start-a-post-overlay");
+
+var spa_block=document.getElementById("start-a-post-overlay");
+var over_lay=document.getElementById("ory");
+
 var find=false;
 var find1=false;
 
@@ -60,6 +69,10 @@ document.getElementById("news").addEventListener("click",news_render);
 
 document.getElementById("footer").addEventListener("click",footer_render);
 
+document.getElementById("start-a-post").addEventListener("click",render_post_block);
+
+document.getElementById("start-a-post-overlay").addEventListener("click",render_post);
+
 function render(event){
 	if(event.target.id === "mm"){
 		if(find === false){
@@ -89,8 +102,15 @@ function show_side_bar(){
 	//stage2.classList.add('main-said');
 	body.classList.add('over');
 	overlay.classList.add('overlay');
+	overlay.classList.add('overlay-second');
 	side_menu.style.right="0px";
 	hide_btn.style.display="block";
+	if(spa_block.style.display==="block"){
+		spa_block.style.display="block";
+				overlay.classList.add('overlay');	
+		 		start_a_post.style.display="none";
+	}
+
 }
 
 function show_user(){
@@ -105,6 +125,7 @@ function hide_side_bar(){
 	side_menu.style.right="-380px";
 	hide_btn.style.display="none";
 	overlay.classList.remove('overlay');
+	overlay.classList.remove('overlay-second');
 	find=false;
 }
 
@@ -264,12 +285,56 @@ function privacy_fun(event){
 	}
 }
 
-document.addEventListener("click",hide);
-function hide(event){
+function render_post_block(event){
+	if(event.target.id === "sap"){
+		event.stopPropagation();
+		if(spa_block.style.display === "none"){
+			spa_block.style.display = "block";
+			start_a_post.style.display="none";
+			overlay.classList.add('overlay');
+		}
+		else{
+			spa_block.style.display = "none";
+			start_a_post.style.display="block";
+			overlay.classList.remove('overlay');
+		}
+	}
+}
 
-	//fix_recent.classList.remove('opa-arrow');
-	//fix_group.classList.remove('opa-arrow');
-	//fix_followed.classList.remove('opa-arrow');
+
+
+function render_post(event){
+	if(event.target.id === "add-hashtag"){
+		text.value =text.value + '#';
+	}
+	else if(event.target.id === "celebrate"){
+		celebrateBlock();
+	}
+	else if(event.target.id == "sc"){
+		block();
+	}
+}
+
+function celebrateBlock(){
+	if(teammate.style.display === "block"){
+			teammate.style.display="none";
+		}
+		else{
+			teammate.style.display="block";
+			
+		}
+}
+
+function block(){
+	spa_block.style.display = "none";
+	start_a_post.style.display="block";
+	overlay.classList.remove('overlay');
+}
+
+document.addEventListener("click",hide);
+
+
+function hide(event){
 
 	if(event.target.id === "side-menu"){
 		side.style.display="block";
@@ -278,6 +343,7 @@ function hide(event){
 		side_menu.style.right="-380px";
 		body.classList.remove('over');
 		overlay.classList.remove('overlay');
+		overlay.classList.remove('overlay-second');
 		hide_btn.style.display="block";
 		//stage2.classList.remove('main-said');
 	}
@@ -308,5 +374,47 @@ function hide(event){
 	else{
 		privacy_block.style.display="none";
 		privacy_icon.classList.remove('rotate');
+	}
+	if(event.target.id != "start-a-post-overlay"){
+		event.stopPropagation();
+		 if((event.target.offsetParent.id === "start-a-post-overlay") || (event.target.offsetParent.id === "media-box")){
+		 	findAndHide(event.target);
+		 }
+		 else{
+		 	spa_block.style.display="none";	
+		 	start_a_post.style.display="block";
+		 }
+	}
+	else{
+		 	spa_block.style.display="none";	
+		 	start_a_post.style.display="block";
+		 }
+	
+}
+
+function findAndHide(target){
+	var count=spa_block.childElementCount;
+	for(let i=0; i<count;i++){
+		var child_count=spa_block.children[i];
+		if(child_count.childElementCount > 0){
+			findTheChild(child_count);
+		}
+	}
+}
+
+function findTheChild(child_count){
+	var count=child_count.childElementCount;
+	for(let i=0 ; i < count ;i++){
+		//console.log(child_count.children[i]);
+		var small_child=child_count.children[i];
+		if(small_child.childElementCount  > 0){
+			var length=small_child.childElementCount;
+			for(let j=0;j<length;j++){
+				//console.log(small_child.children[j]);
+				spa_block.style.display="block";
+				overlay.classList.add('overlay');	
+		 		start_a_post.style.display="none";
+			}
+		}
 	}
 }
