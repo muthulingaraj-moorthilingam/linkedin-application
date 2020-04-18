@@ -38,9 +38,16 @@ var sap_orly=document.getElementById("start-a-post-overlay");
 var spa_block=document.getElementById("start-a-post-overlay");
 var over_lay=document.getElementById("ory");
 
+var select_privacy=document.getElementById("who-can-see-post");
+var inner_parent=document.getElementById("start-a-post-inner");
+
+
+var doc=document.getElementById("save-btn");
+var praivacy_value=document.getElementById("typ-value");
+
 var find=false;
 var find1=false;
-
+var string="";
 document.getElementById("ip").addEventListener("focus",function(){
 		var icon = document.getElementById("icon_a");
 		icon.style.display="inline-block";
@@ -304,25 +311,108 @@ function render_post_block(event){
 
 
 function render_post(event){
+
 	if(event.target.id === "add-hashtag"){
 		text.value =text.value + '#';
 	}
 	else if(event.target.id === "celebrate"){
+		event.stopPropagation();
 		celebrateBlock();
 	}
 	else if(event.target.id == "sc"){
 		block();
+	}
+	else if(event.target.parentNode.id === "select-privacy"){
+		event.stopPropagation();
+		selectPrivacy();
+	}
+	else if((event.target.id === "back-btn") || (event.target.id === "save-btn")){
+		event.stopPropagation();
+		backHome();
+		if(doc.classList.contains('save')){
+			doc.classList.remove('save');
+			if(event.target.id === "save-btn"){
+				praivacy_value.innerText=string;
+			}
+			removeOutline();
+		}
+	}
+	else if(event.target){
+		savePrivacy(event.target);
+	}
+}
+
+function selectPrivacy(){
+
+	for(let i=0;i<inner_parent.childElementCount;i++){
+		if(inner_parent.children[i].id === "sh"){
+				if(inner_parent.children[i].childElementCount > 0){
+				var head=inner_parent.children[i];
+				changeHead(head);
+			}
+		}
+		else if(inner_parent.children[i].id === "who-can-see-post"){
+			select_privacy.style.display="block";
+		}
+		else{
+			inner_parent.children[i].style.display="none";
+		}
+
+	}
+}
+
+
+function changeHead(headnode){
+	var count=headnode.childElementCount-1;
+	while(count >= 0){
+		if(headnode.children[count].innerText === "Create a post"){
+			headnode.children[count].innerText="Who can see your post?";
+		}
+		else{
+			count--;
+		}
+	}
+}
+
+function backHome(){
+
+	for(let i=0;i<inner_parent.childElementCount;i++){
+		if(inner_parent.children[i].id === "sh"){
+				if(inner_parent.children[i].childElementCount > 0){
+				var head=inner_parent.children[i];
+				changeHeadBack(head);
+			}
+		}
+		else if(inner_parent.children[i].id === "who-can-see-post"){
+			select_privacy.style.display="none";
+		}
+		else{
+			inner_parent.children[i].style.display="flex";
+		}
+
+	}
+}
+
+function changeHeadBack(headnode){
+	var count=headnode.childElementCount-1;
+	while(count >= 0){
+		if(headnode.children[count].innerText === "Who can see your post?"){
+			headnode.children[count].innerText="Create a post";
+		}
+		else{
+			count--;
+		}
 	}
 }
 
 function celebrateBlock(){
 	if(teammate.style.display === "block"){
 			teammate.style.display="none";
-		}
-		else{
-			teammate.style.display="block";
+	}
+	else{
+		teammate.style.display="block";
 			
-		}
+	}
 }
 
 function block(){
@@ -330,6 +420,84 @@ function block(){
 	start_a_post.style.display="block";
 	overlay.classList.remove('overlay');
 }
+
+
+function savePrivacy(target){
+
+	if(target.className === "who-see-post-li"){
+		string=getInnerValue(target);
+		checkMark(event.target);
+		
+	}
+	else if((target.className === "who-head-lg") || (target.className === "who-head-sm")){
+		if(target.className === "who-head-lg"){
+			praivacy_value.innerText=target.innerText;
+			var p=target.parentNode;
+			var gp=p.parentNode;
+			checkMark(gp);
+		}
+		else{
+			var val=target.parentNode;
+			var gp=val.parentNode;
+			praivacy_value.innerText=val.children[0].innerText;
+			checkMark(gp);
+		}
+	}
+	doc.classList.add('save');
+	
+}
+
+function getInnerValue(data){
+	var c1=data.children[0];
+	var c2=c1.children[1];
+	var c3=c2.children[0];
+	var value=c3.innerText;
+	return value;
+}
+
+function checkMark(target){
+	var list_length=document.getElementsByClassName("who-see-post-li");
+	for(let i=0;i<list_length.length;i++){
+		if(target === list_length[i]){
+			list_length[i].classList.add('outline-le');
+			var left=list_length[i].children[0];
+			var left_0=left.children[1];
+			var left_1=left_0.children[0].classList.add('clr');
+			addBgClr(list_length[i].children[1])
+		}
+		else{
+			list_length[i].classList.remove('outline-le');
+			var left=list_length[i].children[0];
+			var left_0=left.children[1];
+			var left_1=left_0.children[0].classList.remove('clr');
+			removerBgClr(list_length[i].children[1]);
+		}
+	}
+}
+
+function addBgClr(parent){
+	parent.classList.add('checked');
+	var inner=parent.children[0];
+	inner.classList.add('checked-sp');
+}
+
+function removerBgClr(parent){
+	parent.classList.remove('checked');
+	var inner=parent.children[0];
+	inner.classList.remove('checked-sp');
+}
+
+function removeOutline(){
+	var list_length=document.getElementsByClassName("who-see-post-li");
+	for(let i=0;i<list_length.length;i++){
+		list_length[i].classList.remove('outline-le');
+	}
+}
+
+
+
+
+
 
 document.addEventListener("click",hide);
 
@@ -377,7 +545,10 @@ function hide(event){
 	}
 	if(event.target.id != "start-a-post-overlay"){
 		event.stopPropagation();
-		 if((event.target.offsetParent.id === "start-a-post-overlay") || (event.target.offsetParent.id === "media-box")){
+		if((event.target.className === "who-head-lg")|| (event.target.className === "who-head-sm")){
+			findAndHide(event.target);
+		}
+		else if((event.target.offsetParent.id === "start-a-post-overlay") || (event.target.offsetParent.id === "media-box")){
 		 	findAndHide(event.target);
 		 }
 		 else{
@@ -410,7 +581,6 @@ function findTheChild(child_count){
 		if(small_child.childElementCount  > 0){
 			var length=small_child.childElementCount;
 			for(let j=0;j<length;j++){
-				//console.log(small_child.children[j]);
 				spa_block.style.display="block";
 				overlay.classList.add('overlay');	
 		 		start_a_post.style.display="none";
@@ -418,3 +588,4 @@ function findTheChild(child_count){
 		}
 	}
 }
+

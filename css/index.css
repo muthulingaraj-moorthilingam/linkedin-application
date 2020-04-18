@@ -1162,8 +1162,10 @@ body{
 .text-area{
     min-height: 222px;
     height: 222px;
+    display: flex;
 }
 .text-margin{
+    width: 100%;
     margin-left: 24px;
 }
 #text-area{
@@ -1302,6 +1304,150 @@ body{
     background: #006bb2;
     opacity: 20%;
 }
+.small-head{
+    padding: 12px 24px;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19px;
+}
+.who-see-post-ul{
+    list-style: none;
+    overflow-y: scroll;
+}
+.who-see-post-li{
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 16px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+.who-part{
+    display: flex;
+    padding: 2px 0px;
+}
+.wsp-icon{
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    padding: 8px;
+    color: rgba(0,0,0,0.6);
+    cursor: auto;
+}
+.world{
+    font-size: 21px;
+}
+.who-flex{
+    padding: 0px 0px 8px 8px;
+    position: relative;
+}
+.who-head-lg{
+    font-size: 14px;
+    font-weight: 600;
+    padding-top: 4px;
+}
+.who-head-sm{
+    font-size: 12px;
+    font-weight: 400;
+    padding-top: 4px;
+    color: rgba(0,0,0,0.6);
+}
+.wsp-check{
+    margin-right: 8px;
+    width: 22px;
+    height: 22px;
+    border: 1px solid rgba(0,0,0,0.6);
+    border-radius: 50%;
+    text-align: center;
+    margin-top: 13px;
+    cursor: auto;
+}
+.wsp-check-icon{
+    border-radius: 50%;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-top: 6px;
+}
+.checked{
+    background: rgb(0, 115, 177);
+    border-color: transparent;
+}
+.clr{
+    color: rgb(0, 115, 177);
+}
+.checked-sp{
+    background: #fff;
+}
+.outline-le{
+    outline-style: solid;
+    outline-color: #8cd8f6;
+}
+
+.who-see-post-li:hover{
+    background-color: #f3f6f8;
+}
+.wsp-img{
+   height: 18px;
+    width: 22px;
+    filter: brightness(0.5);
+    margin-top: 2px;
+}
+.wsp-dp{
+    position: absolute;
+    right: 3px;
+    top: 0px;
+    transform: rotate(270deg);
+    font-size: 24px;
+}
+.pa{
+   padding-top: 11px; 
+   margin:0px;
+}
+.set{
+    top: 8px;
+    right: -17px;
+}
+.back-save{
+    display: flex;
+    justify-content: flex-end;
+    padding: 12px 24px;
+}
+.back-save-btn{
+    display: inline-block;
+    padding: 6px 12px;
+    background: #fff;
+    outline: none;
+    border-color: #000;
+    border: 1px solid;
+    color: rgb(0, 115, 177);
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 2px;
+    cursor: pointer;
+}
+#back-btn{
+    margin-right: 10px;
+}
+.not-hover{
+    cursor: not-allowed;
+    background: rgb(0,115,177);
+    color: #fff;
+    opacity: 0.1;
+}
+.hover:hover{
+   background-color: #e2f5fd;
+   padding:5px 11px;
+   border:2px solid rgb(0, 115, 177);
+}
+.save{
+    opacity: 1;
+    cursor:pointer;
+}
+
+
+
+
 
 
 

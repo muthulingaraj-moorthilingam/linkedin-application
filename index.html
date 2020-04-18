@@ -477,7 +477,7 @@
 				<div id="center-part">
 					<div id="start-a-post-overlay" style="display: none;">
 						<div id="start-a-post-inner">
-							<div class="start-head">
+							<div class="start-head" id="sh">
 								<h2 class="start-h2">
 									Create a post
 								</h2>
@@ -489,16 +489,16 @@
 									<div id="name-of-user">
 										muthulingaraj moorthilingam
 									</div>
-									<div class="type-post">
+									<div class="type-post" id="select-privacy">
 										<i class="fa fa-globe" aria-hidden="true"></i>
-										<span class="type-pst-name">
+										<span class="type-pst-name" id="typ-value">
 											Anyone
 										</span>
 										<i class="fa fa-caret-down" aria-hidden="true"></i>
 									</div>
 								</div>
 							</div>
-							<div class="text-area">
+							<div class="text-area" id="txt-area">
 								<div class="text-margin">
 									<textarea id="text-area" placeholder="What do you want to talk about?"></textarea>
 								</div>
@@ -531,6 +531,96 @@
 							<div id="teammate" style="display:block;">
 								<span class="triangle"></span>
 								<button id="celebrte-a-team">Celebrate a teammate</button>
+							</div>
+							<div id="who-can-see-post" style="display: none;">
+								<!--<h2 class="start-h2">Who can see your post?</h2> -->
+								<div class="small-head">
+									Your post will be visible on feed, on your profile and in search results
+								</div>
+								<div class="who-see-post-container">
+									<ul class="who-see-post-ul">
+										<li class="who-see-post-li">
+											<div class="who-part">
+												<div class="wsp-icon">
+													<i class="fa fa-globe world" aria-hidden="true"></i>
+												</div>
+												<div class="who-flex">
+													<h4 class="who-head-lg">Anyone</h4>
+													<h5 class="who-head-sm">Anyone on or off LinkedIn</h5>
+												</div>
+											</div>
+											<div class="wsp-check">
+												<span class="wsp-check-icon"></span>
+											</div>
+										</li>
+										<li class="who-see-post-li">
+											<div class="who-part">
+												<div class="wsp-icon">
+													<i class="fa fa-globe world" aria-hidden="true"></i>
+												</div>
+												<div class="who-flex">
+													<h4 class="who-head-lg">Anyone + Twitter</h4>
+													<h5 class="who-head-sm">Anyone on or off LinkedIn; Post to Twitter</h5>
+												</div>
+											</div>
+											<div class="wsp-check">
+												<span class="wsp-check-icon"></span>
+											</div>
+										</li>
+										<li class="who-see-post-li">
+											<div class="who-part">
+												<div class="wsp-icon">
+													<img src="image/My Networks.png" class="wsp-img">
+												</div>
+												<div class="who-flex">
+													<h4 class="who-head-lg">Connections only</h4>
+													<h5 class="who-head-sm">Connections on LinkedIn</h5>
+												</div>
+											</div>
+											<div class="wsp-check">
+												<span class="wsp-check-icon"></span>
+											</div>
+										</li>
+										<li class="who-see-post-li">
+											<div class="who-part">
+												<div class="wsp-icon">
+													<img src="image/recent.png" class="wsp-img" style="filter: grayscale(1)">
+												</div>
+												<div class="who-flex">
+													<h4 class="who-head-lg">Group members</h4>
+													<i class="fa fa-angle-down wsp-dp" aria-hidden="true"></i>
+													<h5 class="who-head-sm">Select a group you're in</h5>
+												</div>
+											</div>
+											<div class="wsp-check">
+												<span class="wsp-check-icon"></span>
+											</div>
+										</li>
+										<li class="who-see-post-li">
+											<div class="who-part">
+												<div class="wsp-icon">
+													<img src="image/setting.png" class="wsp-img" style="filter: grayscale(1);width:20px">
+												</div>
+												<div class="who-flex">
+													<h4 class="who-head-lg pa">Advanced settings</h4>
+													<i class="fa fa-angle-down wsp-dp set" aria-hidden="true"></i>
+													
+												</div>
+											</div>
+											<div class="wsp-check">
+												<span class="wsp-check-icon"></span>
+											</div>
+										</li>
+									</ul>
+									<div class="back-save">
+										<button id="back-btn" class="back-save-btn hover">
+											Back
+										</button>
+										<button id="save-btn" class="back-save-btn not-hover">
+											Save
+										</button>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
