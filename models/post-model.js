@@ -18,3 +18,7 @@ UserPost.prototype.getUserId = function(){
 UserPost.prototype.getUserPostImage = function(){
 	return this.user_post_image;
 };
+
+UserPost.prototype.getUserContent = function(){
+	return this.user_content;
+};

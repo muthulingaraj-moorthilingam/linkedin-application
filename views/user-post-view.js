@@ -37,16 +37,8 @@ class RenderView{
 
 		var _content_ =document.createElement('p');
 		_content_.classList.add('up-content');
-		 var _rep =findHashTag(model.user_content);
-		// model.user_content= model.user_content.replace(_rep," ");
-		 _content_.innerText=model.user_content;
-
-		 hashTag(_content_,_rep);
-
-
-		/*var _img_=document.createElement('img');
-		_img_.src=model.user_post_image;
-		_img_.classList.add("render-post-img");*/
+		 var _rep =findHashTag(model.getUserContent());
+		 _content_.appendChild(_rep);
 
 		_user_profile_details.appendChild(_name_);
 		_user_profile_details.appendChild(_designation_);
@@ -67,17 +59,41 @@ class RenderView{
 }
 
 function findHashTag(hash){
-	var index = hash.indexOf("#");
-	var str ="";
-	for(let i=index;i < hash.length;i++){
-		if(hash[i] === " "){
-			break;
+	
+	var str="";
+	var str_a="";
+	var len=0;
+	var _span_parent=document.createElement('span');
+
+	for(let i=0;i<hash.length;i++){
+		if(hash[i] === '#'){
+			createChild(_span_parent,str);
+			str="";
+			for(let j=i;j<hash.length;j++){
+				if(hash[j] === " "){
+					len=str_a.length;
+					hashTag(_span_parent,str_a);
+					str_a="";
+					break;
+				}
+				else if(j+1 === hash.length){
+					len=str_a.length;
+					hashTag(_span_parent,str_a);
+					str_a="";
+					break;
+				}
+				else{
+					str_a=str_a+hash[j];
+				}
+			}
+			i=i+len;
 		}
 		else{
 			str=str+hash[i];
 		}
 	}
-	return str;
+	createChild(_span_parent,str);
+	return _span_parent;
 }
 
 function hashTag(parent,str){
@@ -86,6 +102,13 @@ function hashTag(parent,str){
 	_hashtag_.classList.add('hashTag');
 	parent.appendChild(_hashtag_);
 }
+
+function createChild(parent,str){
+	var _span_=document.createElement('span');
+	_span_.innerText=str;
+	parent.appendChild(_span_);
+}
+
 
 function renderImage(images,parent){
 
@@ -108,10 +131,7 @@ function renderImage(images,parent){
 }
 
 function multiPleImage(images,parent){
-	//var _imgcontainer_=document.createElement("div");
-	//_imgcontainer_.classList.add("up-muliple-img");
-	//parent.appendChild(_imgcontainer_);
-
+	
 	var _img_=document.createElement("img");
 	_img_.src=images;
 	_img_.classList.add("up-mul-img");
