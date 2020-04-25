@@ -40,7 +40,7 @@ var over_lay=document.getElementById("ory");
 
 var select_privacy=document.getElementById("who-can-see-post");
 var inner_parent=document.getElementById("start-a-post-inner");
-
+var post_op=document.getElementById("post");
 
 var doc=document.getElementById("save-btn");
 var praivacy_value=document.getElementById("typ-value");
@@ -81,6 +81,20 @@ document.getElementById("start-a-post").addEventListener("click",render_post_blo
 
 document.getElementById("start-a-post-overlay").addEventListener("click",render_post);
 
+document.getElementById("text-area").addEventListener("keypress",makePost);
+
+
+function makePost(event){
+
+	post_op.classList.add('post');
+
+	if(event.key === "Backspace"){
+		if(text.value === ""){
+			post_op.classList.remove('post');
+		}
+	}
+
+}
 
 function render(event){
 
@@ -342,7 +356,12 @@ function render_post(event){
 
 	if(event.target.id === "add-hashtag"){
 		text.value =text.value + '#';
+		if(text.value != ""){
+			post_op.classList.add('post');
+		}
+
 	}
+
 	else if(event.target.id === "celebrate"){
 		event.stopPropagation();
 		celebrateBlock();
@@ -554,4 +573,45 @@ function hide(event){
 
 }
 
+/*fetch("https://testapi.io/api/muthulingaraj/https://testapi.io/api/muthulingaraj/linkedin/user/profile")
+	.then(function (response){
+		return response.json();
+	})
+	.then(function (data){
+		//console.log(data);
+		userProfileData(data);
+});
 
+function userProfileData(user_data){
+	//console.log(user_data);
+	const user_profile_model = new UserProfileData(user_data);
+}
+*/
+
+fetch("https://testapi.io/api/muthulingaraj/https://testapi.io/api/muthulingaraj/linkedin/user/post")
+	.then(function (response){
+		return response.json();
+	})
+	.then(function (data){
+		//console.log(data);
+	UserPostData(data);
+});
+
+
+function UserPostData(data){
+	
+	for(let i=0;i<data.length;i++){
+
+		var _model_post = new UserPost(data[i]);
+
+		const parentElement = document.getElementById("renderPost");
+
+		const _view_post = new RenderView(parentElement);
+
+
+		const _controller_post = new ControllerPost(_model_post,_view_post);
+
+	    _controller_post.renderPost();
+	}
+
+}

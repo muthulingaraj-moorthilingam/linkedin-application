@@ -2,10 +2,11 @@
 <html>
 <head>
 	<title>Linkedin-application</title>
-	
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
+
 	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/mvc-style.css">
 </head>
 <body id="body">
 	<div id="overlay"></div>
@@ -100,14 +101,14 @@
 							</a>
 						</li>
 						<li class="icon-li" id="user-a">
-							<a href="#" class="li-a us" id="user-a">
+							<div class="li-a us" id="user-a" style="cursor: pointer;">
 								<span class="user" id="user-a"></span>
 								<div class="mr">
 									<span class="mr-s" id="user-a">Me</span>
 								<span class="mr-a"><i class="fa fa-2x fa-caret-down" id="user-a"></i>
 								</span>
 								</div>
-							</a>
+							</div>
 									<div id="user-details" style="display: none;">
 										<div id="user-profile" class="clearfix">
 											<div class="top clearfix">
@@ -524,7 +525,7 @@
 									
 									</div>
 								</div>
-								<div id="post">
+								<div id="post" class="post_main">
 									Post
 								</div>
 							</div>
@@ -665,6 +666,7 @@
 							<a href="#" class="sort-a" id="sort-a">Recent</a>
 						</div>
 					</div>
+					<div id="renderPost"></div>
 				</div>
 
 				<div id="aside-right">
@@ -969,5 +971,9 @@
 			</div>
 		</div>
 	<script type="text/javascript" src="javascript/index.js"></script> 
+	<script type="text/javascript" src="models/post-model.js"></script>
+	<!--<script type="text/javascript" src="models/user-profile-model.js"></script> --> 
+	<script type="text/javascript" src="views/user-post-view.js"></script>
+	<script type="text/javascript" src="controllers/user--post-controller.js"></script>
 </body>
 </html>

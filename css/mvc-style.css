@@ -1,0 +1,85 @@
+.parent-div{
+	width: 552px;
+    margin-bottom: 8px;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 3px;
+    box-shadow: 0 4px 4px -4px grey;
+    background-color:#fff; 
+}
+.top-part{
+	padding: 12px 40px 0px 16px;
+	margin-bottom: 8px;
+	display: flex;
+	cursor: pointer;
+}
+.top-logo{
+	width: 44px;
+	height: 44px;
+	border:2px solid transparent;
+	border-radius: 50%;
+}
+.up-details{
+	margin-left: 8px;
+}
+.up-name{
+	font-size: 14px;
+	font-weight:600;
+	color: rgba(0,0,0,0.9); 
+	display: inline-block;
+	text-decoration:underline;
+	text-decoration-color: transparent;
+}
+.up-designation{
+	font-size: 12px;
+	font-weight: 400;
+	color: rgba(0,0,0,0.6);
+	display: block;
+	width: 428px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    padding-top: 3px;
+}
+.up-post-time{
+	font-size: 12px;
+	font-weight: 400;
+	color: rgba(0,0,0,0.6);
+	display: inline-block;
+	padding-right: 10px;
+}
+.globe{
+	display: inline-block;
+	padding: 0px;
+	color: rgba(0,0,0,0.6);
+	font-size: 16px;
+}
+.up-content{
+	font-size: 14px;
+    font-weight: 400;
+    color: rgba(0,0,0,0.9);
+    margin: 0px 16px;
+    line-height: 20px;
+}
+.render-post-img{
+	width: 552px;
+	margin-top: 8px;
+}
+.hashTag{
+	color:rgb(0, 115, 177);
+	cursor: pointer;
+	font-weight: 600;
+	font-size: 14px;
+	color: 
+}
+.up-muliple-img{
+	display: flex;
+	margin-top: 8px;
+}
+.up-mul-img{
+	padding: 0px 13px;
+    width: 250px;
+}
+.up-name:hover{
+	text-decoration-color: #006bb2;
+	color: #006bb2;
+}
