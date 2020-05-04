@@ -62,7 +62,13 @@
 }
 .render-post-img{
 	width: 552px;
-	margin-top: 8px;
+	/*margin-top: 8px;*/
+}
+.render-post-img-height{
+	height: 260px;
+}
+.render-post-img-ht{
+	height: 150px;
 }
 .hashTag{
 	color:rgb(0, 115, 177);

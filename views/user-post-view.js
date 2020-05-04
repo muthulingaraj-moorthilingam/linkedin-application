@@ -2,42 +2,55 @@ class RenderView{
 	constructor(parentid){
 		this.parentid = parentid;
 	}
+	getId(){
+		return this.parentid;
+	}
 	renderView(model){
-		var _parent_div= document.createElement("div");
-		_parent_div.setAttribute("class","parent-div");
-		this.parentid.appendChild(_parent_div);
+		//console.log(model.data);
+		//var _parent_div= document.createElement("div");
+		//_parent_div.setAttribute("class","parent-div");
+		//this.parentid.appendChild(_parent_div);
 
-		var _head_ = document.createElement("a");
+		model.data.forEach(renderingView);
+		
+	}
+}
+function renderingView(data){
+	var _parent_div= document.createElement("div");
+		_parent_div.setAttribute("class","parent-div");
+		_view_post.getId().appendChild(_parent_div);
+		
+	var _head_ = document.createElement("a");
 		_head_.classList.add('top-part');
 		_head_.setAttribute("id","user-profile-page");
 
-		var _user_profile_details = document.createElement('div')
+	var _user_profile_details = document.createElement('div')
 		_user_profile_details.classList.add('up-details');
 
-		var _logo_ = document.createElement("img");
-		_logo_.src=model.user_image;
+	var _logo_ = document.createElement("img");
+		_logo_.src=data.userprofile;
 		_logo_.classList.add('top-logo');
 
-		var _name_=document.createElement('span');
-		_name_.innerText=model.user_name;
+	var _name_=document.createElement('span');
+		_name_.innerText=data.username;
 		_name_.classList.add('up-name');
 
-		var _designation_=document.createElement('span');
-		_designation_.innerText=model.user_designation;
+	var _designation_=document.createElement('span');
+		_designation_.innerText=data.designation;
 		_designation_.classList.add('up-designation');
 
-		var _time =document.createElement("span");
-		_time.innerText=model.user_time;
+	var _time =document.createElement("span");
+		_time.innerText=data.time;
 		_time.classList.add('up-post-time');
 
 
-		var _post_type = document.createElement('i');
+	var _post_type = document.createElement('i');
 		_post_type.setAttribute("class","fa fa-globe");
 		_post_type.classList.add("globe");
 
-		var _content_ =document.createElement('p');
+	var _content_ =document.createElement('p');
 		_content_.classList.add('up-content');
-		 var _rep =findHashTag(model.getUserContent());
+	var _rep =findHashTag(data.content);
 		 _content_.appendChild(_rep);
 
 		_user_profile_details.appendChild(_name_);
@@ -53,11 +66,12 @@ class RenderView{
 
 
 
-		renderImage(model.getUserPostImage(),_parent_div);
+		renderImage(data.image,_parent_div);
 		//_parent_div.appendChild(_img_);
-	}
-}
 
+
+
+}
 function findHashTag(hash){
 	
 	var str="";
@@ -115,26 +129,33 @@ function renderImage(images,parent){
 	var _imgcontainer_=document.createElement("div");
 	_imgcontainer_.classList.add("up-muliple-img");
 	parent.appendChild(_imgcontainer_);
-	
+		
+		var width=552;	
+
 	for(let i=0;i<images.length;i++){
-		if(images.length === 1){
-			var _img_=document.createElement("img");
-			_img_.src=images[i];
-			_img_.classList.add("render-post-img");
-			parent.appendChild(_img_);
-		}
-		else{
-			var _mul_img=multiPleImage(images[i]);
-			_imgcontainer_.appendChild(_mul_img);
-		}
+
+		var _img_=document.createElement("img");
+		var w = calc(images.length,width,i,_img_);
+		_img_.style.width=w.toString()+'px';
+		_img_.src=images[i];
+			//_img_.classList.add("render-post-img");
+		parent.appendChild(_img_);
+		_imgcontainer_.appendChild(_img_);
 	}
 }
 
-function multiPleImage(images,parent){
-	
-	var _img_=document.createElement("img");
-	_img_.src=images;
-	_img_.classList.add("up-mul-img");
-	//_imgcontainer_.appendChild(_img_);
-	return _img_;
+function calc(img_l,width,i,_img_){
+	var div;
+	if((img_l >= 3) && (i === 0)){
+		div = width;
+		_img_.classList.add('render-post-img-height');
+	}
+	else if(img_l >= 3){
+		div = width/(img_l-1);
+		_img_.classList.add('render-post-img-ht');
+	}
+	else{
+		div = width/img_l;
+	}
+	return (div);
 }

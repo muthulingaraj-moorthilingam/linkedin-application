@@ -12,9 +12,4 @@ fetch("https://testapi.io/api/muthulingaraj/https://testapi.io/api/muthulingaraj
 				this.data=data;
 			}
 		}
-
-		for(let i=0;i<data.length;i++){
-			var userprofile = new userdata(data[i]);
-			console.log(userprofile.data);
-		}
 });
