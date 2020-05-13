@@ -147,6 +147,7 @@ body{
     text-align: center;
      border-bottom: 2px solid transparent;
      position: relative;
+     cursor:pointer;
 }
 .li-img{
 	display: inline-block;

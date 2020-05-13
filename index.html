@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Linkedin-application</title>
+	<title>LinkedIn - application</title>
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
-
 	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="icon" type="immage/x-icon" href="image/Logo_ LinkedIn.png">
 	<link rel="stylesheet" type="text/css" href="css/mvc-style.css">
+	<link rel="stylesheet" type="text/css" href="css/mvc-profile-style.css">
 </head>
 <body id="body" >
 	<div id="overlay"></div>
@@ -56,12 +57,12 @@
 				<div id="right-side" class="clearfic">
 					<ul class="icon-navbar clearfix" >
 						<li class="icon-li">
-							<a href="#" class="li-a">
-								<span class="li-img">
-									<img src="image/Home.png" class="icon-img">
+							<a href="#home" class="li-a" id="home">
+								<span class="li-img" id="home">
+									<img src="image/Home.png" class="icon-img" id="home">
 									<span class="icon-count" style="display: none;"></span>
 								</span>
-								<span class="icon-name">Home</span>
+								<span class="icon-name" id="home">Home</span>
 							</a>
 						</li>
 						<li class="icon-li">
@@ -312,6 +313,8 @@
 		<div id="main-contant-page">
 			<div class="container clearfix">
 				<div style="height: 49px"></div>
+				<div id="user-profile-page" class="clearfix"></div>
+				<section id="post-section" class="clearfix">
 				<div id="aside">
 					<div class="top-aside">
 						<div class="identity-profile">
@@ -968,13 +971,19 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</section>
 		</div>
+	</div>
 	
 	
 	<script type="text/javascript" src="models/post-model.js"></script>
 	<script type="text/javascript" src="views/user-post-view.js"></script> 
 	<script type="text/javascript" src="controllers/user--post-controller.js"></script>
+
+	<script type="text/javascript" src="models/user-profile-model.js"></script>
+	<script type="text/javascript" src="views/user-profile-view.js"></script> 
+	<script type="text/javascript" src="controllers/user-profile-controller.js"></script>
+
 	<script type="text/javascript" src="javascript/main-index.js"></script> 
 	<script type="text/javascript" src="javascript/index.js"></script> 
 

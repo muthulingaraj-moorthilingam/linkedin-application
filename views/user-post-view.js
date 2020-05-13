@@ -10,8 +10,8 @@ class RenderView{
 		//var _parent_div= document.createElement("div");
 		//_parent_div.setAttribute("class","parent-div");
 		//this.parentid.appendChild(_parent_div);
-
-		model.data.forEach(renderingView);
+		var post_data = model.getData();
+		post_data.forEach(renderingView);
 		
 	}
 }
@@ -22,10 +22,13 @@ function renderingView(data){
 		
 	var _head_ = document.createElement("a");
 		_head_.classList.add('top-part');
-		_head_.setAttribute("id","user-profile-page");
+		_head_.setAttribute("id",data.userId);
+		//_head_.href=;
+		//_head_.setAttribute("id","user-profile-page");
 
 	var _user_profile_details = document.createElement('div')
 		_user_profile_details.classList.add('up-details');
+		_user_profile_details.setAttribute("id",data.userId);
 
 	var _logo_ = document.createElement("img");
 		_logo_.src=data.userprofile;

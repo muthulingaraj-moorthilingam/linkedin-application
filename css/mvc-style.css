@@ -102,3 +102,9 @@
 	text-decoration-color: #006bb2;
 	color: #006bb2;
 }
+.post-section{
+	display: none;
+}
+.user-profile-page{
+	display: none;
+}

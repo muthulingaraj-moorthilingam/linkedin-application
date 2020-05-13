@@ -114,9 +114,9 @@ event.stopPropagation();
 			}	
 		}
 	}
-	if(event.target.id === "user-a"){
+	else if(event.target.id === "user-a"){
 		if(find1 === false){
-			//event.stopPropagation();
+			event.stopPropagation();
 			show_user();
 			hide_side_bar();
 			if(spa_block.style.display === "block"){
@@ -129,7 +129,25 @@ event.stopPropagation();
 			hide_user();
 		}
 	}
+	else if(event.target.id === "home"){
+		hide_user();
+		var _post_section = document.getElementById("post-section");
+		var _profile_section = document.getElementById("user-profile-page");
+		changePage(_post_section,_profile_section);
+	}
 }
+
+function changePage(post,profile){
+	if(post.classList.contains('post-section')){
+		post.classList.remove('post-section');
+		clearChild();
+	}
+	/*else if(profile.style.display === "block"){
+		post.classList.remove('post-section');
+		profile.style.display="none";
+	}*/
+}
+
 
 function show_side_bar(){
 	find=true;
