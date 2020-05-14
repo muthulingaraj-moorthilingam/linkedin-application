@@ -47,7 +47,7 @@ function fetchData(){
 
  var controller_profile = new UserProfileController(model_profile,view_profile);
 
- const url = "https://testapi.io/api/muthu/https://testapi.io/api/muthu/linkedin/user/profile";
+ const url = "https://testapi.io/api/muthuvijay/muthu/linkedin/user/profile";
 
 
  if(model_profile.getData() === undefined){
