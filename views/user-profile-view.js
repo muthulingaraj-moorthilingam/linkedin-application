@@ -69,6 +69,11 @@ function renderElements(parent_div,data){
 	if(data.featured != ""){
 		renderFeature(parent_div,data);
 	}
+
+	var exp_edu_blk = document.createElement("div");
+	exp_edu_blk.classList.add("exp-edu");
+	createExp_Edu_Block(exp_edu_blk,data);
+	parent_div.appendChild(exp_edu_blk);
 }
 
 
@@ -120,7 +125,13 @@ function renderName(right_side,data){
 
 function createAddress(address_blk,data){
 	var li_add = document.createElement("li");
-	li_add.innerHTML = data.address.city+','+data.address.state+','+data.address.nationality;
+	if(data.address.city ==='' || data.address.state === ''){
+		li_add.innerHTML = data.address.city+data.address.state+data.address.nationality;
+	}
+	else{
+		li_add.innerHTML = data.address.city+','+data.address.state+','+data.address.nationality;
+	}
+	//li_add.innerHTML = data.address.city+','+data.address.state+','+data.address.nationality;
 	li_add.classList.add("add-blk");
 	address_blk.appendChild(li_add);
 
@@ -226,6 +237,262 @@ function imageRennder(inner_section,data){
 	h_span.innerHTML = data.name+'.pdf';
 	h_span.classList.add("h_span");
 	frame.appendChild(h_span);
+}
+
+function createExp_Edu_Block(parent,data){
+	var head = document.createElement("div");
+	head.classList.add("h2-exp-edu");
+
+	var h2 = document.createElement("h2");
+	h2.innerHTML = "Experience";
+	h2.classList.add("h2-title");
+	head.appendChild(h2);
+	parent.appendChild(head);
+
+	renderExperience(parent,data.experience);
+}
+
+function renderExperience(parent,data){
+	var exp_blk = document.createElement("ul");
+	exp_blk.classList.add("exp-ul");
+	parent.appendChild(exp_blk);
+
+	for(let i=data.length-1; i >= 0; i--){
+		var list = document.createElement("li");
+		list.classList.add("exp-li");
+		exp_blk.appendChild(list);
+
+		if(data[i].samecompany === "true"){
+			renderSameCmpy(list,data[i],i);
+		}
+		else{
+			renserPresent_Old_Cmpy(list,data[i],i);
+		}
+	}
+}
+
+function renserPresent_Old_Cmpy(list,data,i){
+	var inner = document.createElement("div");
+	inner.classList.add("inner_blk");
+	inner.classList.add("inner-blk-after");
+	if (i === 0) {
+		inner.classList.remove("inner-blk-after");
+	}
+	list.appendChild(inner);
+	
+	var div = document.createElement("div")
+	div.classList.add("in_div");
+	inner.appendChild(div);
+
+	var logo = document.createElement("div");
+	logo.style.backgroundImage = 'url'+'('+'"'+ data.companyimg +'"'+')';
+	logo.classList.add("logo-p");
+	div.appendChild(logo);
+
+	var right = document.createElement("div");
+	right.classList.add("right-div");
+	div.appendChild(right);
+
+	alignData(right,data);
+}
+
+function renderSameCmpy(list,data,i){
+	var inner = document.createElement("div");
+	inner.classList.add("inner_blk");
+	inner.classList.add("inner-blk-after");
+	if (i === 0) {
+		inner.classList.remove("inner-blk-after");
+	}
+	list.appendChild(inner);
+	
+	var top_cmpy = document.createElement("a");
+	top_cmpy.href="#";
+	top_cmpy.classList.add("top-cpmy-exp");
+	inner.appendChild(top_cmpy);
+
+	var logo = document.createElement("div");
+	logo.style.backgroundImage = 'url'+'('+'"'+ data.companyimg +'"'+')';
+	logo.classList.add("logo-p");
+	top_cmpy.appendChild(logo);
+
+	var top_cmpy_name = document.createElement("div");
+	top_cmpy.appendChild(top_cmpy_name);
+
+	var cmpy_name = document.createElement("h3");
+	cmpy_name.innerHTML = data.companyname;
+	cmpy_name.classList.add("top-cmpy-name");
+	top_cmpy_name.appendChild(cmpy_name);
+
+	var total_year =document.createElement("span");
+	total_year.innerHTML=data.totalexp;
+	total_year.classList.add("top-cmpy-name-sp");
+	top_cmpy_name.appendChild(total_year);
+
+	var ul_list = document.createElement("ul");
+	ul_list.classList.add("ul_list-cmpy-exp");
+	inner.appendChild(ul_list);
+
+
+	var design_list =data.designation;
+	for(let i=0; i<  design_list.length;i++){
+
+		var ul_li = document.createElement("li");
+		ul_li.classList.add("ul_li-li");
+		ul_list.appendChild(ul_li);
+
+		renderUlList(ul_li, design_list[i]);
+		if( i < (design_list.length-1)){
+			var line = document.createElement("span");
+			line.classList.add("ul-li-line");
+			ul_li.appendChild(line);
+		}
+	}
+
+
+
+	/*var div = document.createElement("div")
+	div.classList.add("in_div");
+	inner.appendChild(div);
+
+	var logo = document.createElement("div");
+	logo.style.backgroundImage = 'url'+'('+'"'+ data.companyimg +'"'+')';
+	logo.classList.add("logo-p");
+	div.appendChild(logo);
+
+	var right = document.createElement("div");
+	right.classList.add("right-div");
+	div.appendChild(right);
+
+	alignData(right,data);*/
+}
+
+function renderUlList(ul_li,data){
+	
+	var ul_li_top = document.createElement("div");
+	ul_li_top.classList.add("ul_li-top");
+	ul_li.appendChild(ul_li_top);
+
+	var ul_dot = document.createElement("span");
+	ul_dot.classList.add("ul_li-top-before");
+	ul_li_top.appendChild(ul_dot);
+
+	var ul_h3 = document.createElement("span");
+	ul_h3.innerHTML = data.desingnation;
+	ul_h3.classList.add("ul-li-top-span");
+	ul_li_top.appendChild(ul_h3);
+
+	var exp = document.createElement("div");
+	exp.classList.add("exp-crt-div");
+	ul_li_top.appendChild(exp);
+
+	var e_span = document.createElement("span");
+	e_span.innerHTML = data.totelyears;
+	e_span.classList.add("cmpy-span");
+	exp.appendChild(e_span);
+
+		var span_1=document.createElement("span");
+		span_1.classList.add("cp-after");
+		exp.appendChild(span_1);
+
+	var et_span = document.createElement("span");
+	et_span.innerHTML = findTotal(data.employmentDuration);
+	et_span.classList.add("cmpy-span");
+	exp.appendChild(et_span);
+
+	var add =document.createElement("div");
+	add.innerHTML = data.location;
+	add.classList.add("add-div-exp");
+	ul_li_top.appendChild(add);
+
+	if(data.content != ""){
+		var content =document.createElement("div");
+		content.innerHTML = data.content;
+		content.classList.add("add-div-content");
+		ul_li_top.appendChild(content);
+	}
+
+}
+
+function alignData(right,data){
+
+	var h3 = document.createElement("h3");
+	h3.innerHTML =data.desingnation;
+	h3.classList.add("h3-head-cmpy");
+	right.appendChild(h3);
+
+	var div = document.createElement("div");
+	div.classList.add("cmpy-name-div");
+
+	var c_span = document.createElement("span");
+	c_span.innerHTML = data.companyname;
+	c_span.classList.add("cmpy-span");
+	if (data.employmenttype != ""){
+		var span=document.createElement("span");
+		span.classList.add("cp-after");
+		c_span.appendChild(span);
+	}
+	div.appendChild(c_span);
+
+	right.appendChild(div);
+
+	var c_span = document.createElement("span");
+	c_span.innerHTML = data.employmenttype;
+	c_span.classList.add("cmpy-span");
+	div.appendChild(c_span);
+
+	var exp = document.createElement("div");
+	exp.classList.add("exp-crt-div");
+	right.appendChild(exp);
+
+	var e_span = document.createElement("span");
+	e_span.innerHTML = data.totelyears;
+	e_span.classList.add("cmpy-span");
+	exp.appendChild(e_span);
+
+		var span_1=document.createElement("span");
+		span_1.classList.add("cp-after");
+		exp.appendChild(span_1);
+
+	var et_span = document.createElement("span");
+	if(data.samecompany === "true"){
+		var desing = data.designation;
+		for(let i=0;i < desing.length;i++){
+			et_span.innerHTML= findTotal(desing[i].employmentDuration);
+		}
+	}
+	else{
+		et_span.innerHTML = findTotal(data.employmentDuration);
+	}
+	et_span.classList.add("cmpy-span");
+	exp.appendChild(et_span);
+
+	var add =document.createElement("div");
+	add.innerHTML = data.location;
+	add.classList.add("add-div-exp");
+	right.appendChild(add);
+
+	if(data.content != ""){
+		var content =document.createElement("div");
+		content.innerHTML = data.content;
+		content.classList.add("add-div-content");
+		right.appendChild(content);
+	}
+}
+
+function findTotal(date){
+	var month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+	var split = date.split(" ");
+	var prev_m = month.indexOf(split[0]);
+	var prev_y = split[1];
+	var pres_m = month.indexOf(split[2]);
+	var pres_y = split[3];
+	if(prev_m > pres_m){
+		pres_m = pres_m +12;
+		pres_y = pres_y-1;
+	}
+	var mo = pres_m - prev_m;
+	var yr = pres_y - prev_y;
+	return (yr+' '+'yrs'+' '+(mo+1)+' '+"mos")
 }
 
 function clearChild(){

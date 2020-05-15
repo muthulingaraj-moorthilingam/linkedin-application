@@ -207,3 +207,150 @@
 	text-align: left;
 	border-radius: 2px;
 }
+.exp-edu{
+	padding-bottom: 24px;
+	margin-top:16px;
+	box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 2px 3px rgba(0,0,0,.2);
+	background-color: #fff;
+}
+.h2-exp-edu{
+	padding: 24px 24px 0px 24px;
+	text-align: left;
+}
+.h2-title{
+	font-size: 20px;
+	line-height: 28px;
+	font-weight: 400;
+	color: rgba(0,0,0,0.9);
+}
+.exp-ul{
+	list-style: none;
+}
+.exp-li{
+	display: block;
+}
+.inner_blk{
+	padding: 20px 0px 0px 24px;
+}
+.inner-blk-after::after{
+	content: "";
+    display: block;
+    border-bottom: 1px solid #e6e9ec;
+    margin-top: 16px;
+  	margin-left: 81px;
+}
+.in_div{
+	display: flex;
+}
+.logo-p{
+	width: 56px;
+    height: 56px;
+    margin-right: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 52px 52px;
+}
+.right-div{
+	text-align: left;
+}
+.h3-head-cmpy{
+	font-weight: 600;
+	font-size: 16px;
+	color: #000;
+	line-height: 24px;
+}
+.cmpy-name-div{
+	display: flex;
+}
+.cmpy-span{
+	line-height: 20px;
+	font-size: 14px;
+	display: inline-block;
+	font-weight: 400;
+	color:rgba(0, 0, 0, 0.6);
+	overflow-wrap:break-word;
+}
+.cp-after::after{
+	content: "";
+    display: inline-block;
+    width: 2px;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.9);
+    margin: 3px 5px;
+    border-radius: 50%;
+}
+.exp-crt-div{
+	display: flex;
+}
+.add-div-exp{
+	line-height: 20px;
+	font-size: 14px;
+	display: block;
+	font-weight: 400;
+	color:rgba(0, 0, 0, 0.6);
+	overflow-wrap:break-word;
+}
+.top-cpmy-exp{
+	display: flex;	
+	text-decoration: none;
+}
+.top-cmpy-name{
+	color: #000;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 24px;
+}
+.top-cmpy-name-sp{
+	font-size: 14px;
+	font-weight: 400;
+	display: block;
+	line-height: 20px;
+	color:rgba(0,0,0,0.6);
+}
+.ul_list-cmpy-exp{
+	list-style: none;
+	margin-top: 8px;
+}
+.ul_li-li{
+	position: relative;
+	padding-left: 80px;
+}
+.ul_li-top{
+	position: relative;
+	padding-bottom: 24px;
+}
+.ul_li-top-before{
+	display: block;
+	position: absolute;
+	border: 2px solid #cfcfcf;
+    border-radius: 50%;
+    height: 4px;
+    width: 4px;
+    background-color: #cfcfcf;
+    top: 12px;
+    margin-left: 24px;
+    left: -81px;
+}
+.ul-li-top-span{
+	color: #000;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 20px;
+	display: block;
+}
+.ul-li-line{
+   position: absolute;
+    height: calc(100% - 22px); 
+    top: 28px;
+   /* height: 40px;*/
+    left: 26px;
+    width: 2px;
+    background-color: #e9e9e9;
+}
+.add-div-content{
+	margin-top: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.9)
+}
