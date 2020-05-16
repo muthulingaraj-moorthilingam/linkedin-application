@@ -54,7 +54,7 @@ document.getElementById("ip").addEventListener("focus",function(){
 		var iconl=document.getElementById("licon");
 		iconl.style.display="none";
 		document.getElementById("search-filter").style.display="block";
-		//overlay.classList.add('overlay');
+		overlay.classList.add('overlay');
 });
 document.getElementById("ip").addEventListener("blur",function(){
 		var righticon = document.getElementById("icon_a");
@@ -62,6 +62,7 @@ document.getElementById("ip").addEventListener("blur",function(){
 		var lefticon=document.getElementById("licon");
 		lefticon.style.display="inline-block";
 		document.getElementById("search-filter").style.display="none";
+		overlay.classList.remove('overlay');
 });
 
 

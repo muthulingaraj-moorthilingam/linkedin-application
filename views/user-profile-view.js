@@ -72,7 +72,25 @@ function renderElements(parent_div,data){
 
 	var exp_edu_blk = document.createElement("div");
 	exp_edu_blk.classList.add("exp-edu");
-	createExp_Edu_Block(exp_edu_blk,data);
+
+	var exp_block =document.createElement("section");
+	exp_edu_blk.appendChild(exp_block);
+
+	var edu_block = document.createElement("section");
+	edu_block.classList.add("set-one");
+	exp_edu_blk.appendChild(edu_block);
+
+	createExp_Edu_Block(exp_block,data);
+	createEdu_Block(edu_block,data);
+
+	if(data.licenses.length != 0){
+		var licse_block = document.createElement("section");
+		licse_block.classList.add("set-one");
+		exp_edu_blk.appendChild(licse_block);
+
+		licensesBlock(licse_block,data);
+	}
+
 	parent_div.appendChild(exp_edu_blk);
 }
 
@@ -277,6 +295,7 @@ function renserPresent_Old_Cmpy(list,data,i){
 	inner.classList.add("inner-blk-after");
 	if (i === 0) {
 		inner.classList.remove("inner-blk-after");
+		inner.classList.add("inner-blk-last");
 	}
 	list.appendChild(inner);
 	
@@ -302,6 +321,7 @@ function renderSameCmpy(list,data,i){
 	inner.classList.add("inner-blk-after");
 	if (i === 0) {
 		inner.classList.remove("inner-blk-after");
+		inner.classList.add(".inner-blk-last");
 	}
 	list.appendChild(inner);
 	
@@ -340,7 +360,7 @@ function renderSameCmpy(list,data,i){
 		ul_li.classList.add("ul_li-li");
 		ul_list.appendChild(ul_li);
 
-		renderUlList(ul_li, design_list[i]);
+		renderUlList(ul_li, design_list[i],design_list.length,i);
 		if( i < (design_list.length-1)){
 			var line = document.createElement("span");
 			line.classList.add("ul-li-line");
@@ -366,10 +386,13 @@ function renderSameCmpy(list,data,i){
 	alignData(right,data);*/
 }
 
-function renderUlList(ul_li,data){
+function renderUlList(ul_li,data,l,i){
 	
 	var ul_li_top = document.createElement("div");
 	ul_li_top.classList.add("ul_li-top");
+	if(i === (l-1)){
+		ul_li_top.classList.add("ul_li-top-bottom");
+	}
 	ul_li.appendChild(ul_li_top);
 
 	var ul_dot = document.createElement("span");
@@ -493,6 +516,176 @@ function findTotal(date){
 	var mo = pres_m - prev_m;
 	var yr = pres_y - prev_y;
 	return (yr+' '+'yrs'+' '+(mo+1)+' '+"mos")
+}
+
+function createEdu_Block(parent,data){
+	var head = document.createElement("div");
+	head.classList.add("h2-exp-edu");
+
+	var h2 = document.createElement("h2");
+	h2.innerHTML = "Educations";
+	h2.classList.add("h2-title");
+	head.appendChild(h2);
+	parent.appendChild(head);
+
+	renderSchoolsLic(parent,data.education);
+}
+
+function renderSchoolsLic(parent,data){
+	var exp_blk = document.createElement("ul");
+	exp_blk.classList.add("exp-ul");
+	parent.appendChild(exp_blk);
+
+	var len = data.length;
+	for(let i=0; i < data.length; i++){
+		var list = document.createElement("li");
+		list.classList.add("exp-li");
+		exp_blk.appendChild(list);
+
+		if(data[i].college === "true"){
+			alignDetailsPro(list,data[i],i,len);
+		}
+		else if(data[i].diploma === "true"){
+			alignDetailsPro(list,data[i],i,len);
+		}
+		else if(data[i].school === "true"){
+			alignDetailsPro(list,data[i],i,len);
+		}
+	}
+}
+
+function licensesBlock(parent,data){
+	var head = document.createElement("div");
+	head.classList.add("h2-exp-edu");
+
+	var h2 = document.createElement("h2");
+	h2.innerHTML = data.licenses[0].title;
+	h2.classList.add("h2-title");
+	head.appendChild(h2);
+	parent.appendChild(head);
+
+	renderLicence_Block(parent,data.licenses);
+}
+
+function renderLicence_Block(parent,data){
+	var exp_blk = document.createElement("ul");
+	exp_blk.classList.add("exp-ul");
+	parent.appendChild(exp_blk);
+
+	var len = data.length;
+	for(let i=0; i < data.length; i++){
+		var list = document.createElement("li");
+		list.classList.add("exp-li");
+		exp_blk.appendChild(list);
+
+		alignDetailsPro(list,data[i],i,len);
+	}
+}
+
+function alignDetailsPro(list,data,i,l){
+	var inner = document.createElement("div");
+	inner.classList.add("inner_blk");
+	inner.classList.add("inner-blk-after");
+	if (i === l-1) {
+		inner.classList.remove("inner-blk-after");
+		inner.classList.add("inner-blk-last");
+	}
+	list.appendChild(inner);
+	
+	var div = document.createElement("div")
+	div.classList.add("in_div");
+	inner.appendChild(div);
+
+	var logo = document.createElement("div");
+	logo.style.backgroundImage = 'url'+'('+'"'+ data.src +'"'+')';
+	logo.classList.add("logo-p");
+	div.appendChild(logo);
+
+	var right = document.createElement("div");
+	right.classList.add("right-div");
+	div.appendChild(right);
+
+	detailsAlign(right,data);
+}
+
+function detailsAlign(right,data){
+	var h3 = document.createElement("h3");
+	h3.innerHTML =data.name;
+	h3.classList.add("h3-head-cmpy");
+	right.appendChild(h3);
+
+	var div = document.createElement("div");
+	div.classList.add("cmpy-name-div");
+
+	var c_span = document.createElement("span");
+	c_span.innerHTML = data.field;
+	c_span.classList.add("cmpy-span");
+	div.appendChild(c_span);
+
+	right.appendChild(div);
+
+	if(data.graduation != undefined ){
+		var e_span = document.createElement("span");
+		e_span.innerHTML = data.graduation;
+		e_span.classList.add("cmpy-span");
+		right.appendChild(e_span);
+	}
+
+	if(data.activities.length != 0){
+		var div_activity = document.createElement("div");
+		div_activity.classList.add("div_activity");
+		activity(div_activity,data.activities);
+		right.appendChild(div_activity);
+	}
+
+	if(data.about != ""){
+		var content =document.createElement("div");
+		content.innerHTML = data.about;
+		content.classList.add("add-div-content");
+		right.appendChild(content);
+	}
+	if(data.issued != undefined || data.expires != undefined){
+		var issued = document.createElement('div');
+		issued.classList.add("issued-div");
+		right.appendChild(issued);
+
+		var issued_span = document.createElement("span");
+		issued_span.innerHTML = data.issued;
+		issued_span.classList.add("cmpy-span");
+		issued.appendChild(issued_span);
+
+			var span_1=document.createElement("span");
+			span_1.classList.add("cp-after");
+			issued.appendChild(span_1);
+
+		var expires_span = document.createElement("span");
+		expires_span.innerHTML = data.expires;
+		expires_span.classList.add("cmpy-span");
+		issued.appendChild(expires_span);
+
+	}
+
+	if(data.credential != ""){
+		var ec_span = document.createElement("span");
+		ec_span.innerHTML = data.credential;
+		ec_span.classList.add("cmpy-span");
+		right.appendChild(ec_span);
+	}
+}
+
+function activity(parent,data){
+	for(let i=0;i<data.lenght;i++){
+
+		var e_span = document.createElement("span");
+		e_span.innerHTML = data[i].tittle +':';
+		e_span.classList.add("cmpy-span");
+		parent.appendChild(e_span);
+
+		var er_span = document.createElement("span");
+		er_span.innerHTML = data[i].details;
+		er_span.classList.add("cmpy-span");
+		parent.appendChild(er_span);
+	}
 }
 
 function clearChild(){
