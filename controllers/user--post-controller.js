@@ -19,8 +19,10 @@ rootElement.addEventListener("click",user_Profile);
 
 function user_Profile(event){
 	event.stopPropagation();
+	console.log(controller_profile.profile_data());
 	var event_info = event.target.parentNode.id;
-	view_profile.renderProfile(event_info,model_profile.getData());
+	view_profile.renderProfile(event_info,controller_profile.profile_data());
+
 }
 
 

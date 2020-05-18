@@ -10,6 +10,7 @@ class UserProfileRenderView{
 			if(data[i].userId === info){
 				//console.log(data[i].userId);
 				renderingProfile(data[i]);
+				user_data_=data[i];
 				break;
 			}
 		}
@@ -52,6 +53,7 @@ function renderElements(parent_div,data){
 	var profile_div = document.createElement("div");
 	profile_div.style.backgroundImage = 'url'+'('+'"'+ data.userprofileimage +'"'+')';
 	profile_div.classList.add("profile-image");
+	profile_div.setAttribute("id","profile_div");
 	profile_part.appendChild(profile_div);
 	createMsgMore(profile_part);
 
@@ -85,15 +87,32 @@ function renderElements(parent_div,data){
 
 	if(data.licenses.length != 0){
 		var licse_block = document.createElement("section");
-		licse_block.classList.add("set-one");
+		licse_block.classList.add("set-one-last");
 		exp_edu_blk.appendChild(licse_block);
 
 		licensesBlock(licse_block,data);
 	}
 
 	parent_div.appendChild(exp_edu_blk);
-}
 
+	var skills_block = document.createElement("section");
+	skills_block.classList.add("section-skills");
+	parent_div.appendChild(skills_block);
+
+	var inner_skills = document.createElement("div");
+	inner_skills.setAttribute("id","skills-block");
+	inner_skills.classList.add("inner-section-skills");
+	skills_block.appendChild(inner_skills);
+
+	renderSkillsBlock(inner_skills,data);
+
+	var inner_skills_div = document.createElement("div");
+	inner_skills_div.setAttribute("id","other-skills-block");
+	inner_skills.appendChild(inner_skills_div);
+	//renderSkills_Block(inner_skills,data.skills);
+
+	renderShowMore(inner_skills);
+}
 
 function createMsgMore(bottom){
 	var parent =document.createElement("div");
@@ -686,6 +705,142 @@ function activity(parent,data){
 		er_span.classList.add("cmpy-span");
 		parent.appendChild(er_span);
 	}
+}
+
+function renderSkillsBlock(parent,data){
+	renderHead(parent);
+
+	var skill_ul = document.createElement("ul");
+	skill_ul.classList.add("ul-skill-parent");
+	parent.appendChild(skill_ul);
+
+	var skill = data.skills[0].topskills;
+
+	for(let i=0; i < skill.length;i++){
+		var list=document.createElement("li");
+		list.classList.add("skill-li");
+		if(i === (skill.length-1)){
+			list.classList.remove("skill-li");
+			list.classList.add("skill-li-last")
+		}
+		skill_ul.appendChild(list);
+
+		renderTopSkill(list,skill[i]);
+	}
+}
+
+function renderHead(parent){
+	var head = document.createElement("div");
+	parent.appendChild(head);
+
+	var h2 = document.createElement("h2");
+	h2.innerHTML = "Skills & Endorsements";
+	h2.classList.add("h2-skill");
+	head.appendChild(h2);
+}
+
+function renderTopSkill(parent,data){
+	var div = document.createElement("div");
+	div.classList.add("li-div-flex");
+	parent.appendChild(div);
+
+	renderButton(div);
+
+	var div_content = document.createElement("div");
+	div_content.classList.add("line-height");
+	div.appendChild(div_content);
+
+	var sp = document.createElement("span");
+	sp.innerHTML = data;
+	sp.classList.add("span-list-skill");
+	div_content.appendChild(sp);
+}
+
+function renderButton(parent){
+
+	var div_btn = document.createElement("div");
+	div_btn.classList.add("div-skill-btn");
+	parent.appendChild(div_btn);
+
+	var button = document.createElement("button");
+	button.classList.add("button-skill-plus");
+	div_btn.appendChild(button);
+
+	var span = document.createElement("span");
+	span.classList.add("span-skill-plus");
+	button.appendChild(span);
+
+
+
+}
+
+function renderSkills_Block(parent,data){
+	var parent_div = document.createElement("div");
+	parent_div.classList.add("skills-parent-padding");
+	parent.appendChild(parent_div);
+
+	if(data[1].industry_skills.length != 0){
+		var i_skills = data[1].industry_skills;
+		renderSkills_Other(i_skills,parent_div,"Industry Knowledge");
+	}
+	if(data[2].tool_tech.length != 0){
+		var tool_skl = data[2].tool_tech;
+		renderSkills_Other(tool_skl,parent_div,"Tools & Technologies");
+	}
+	if(data[3].inter_skill.length != 0){
+		var inter_skl = data[3].inter_skill;
+		renderSkills_Other(inter_skl,parent_div,"Interpersonal Skills");
+	}
+	if(data[4].other_skills.length != 0){
+		var other_skl = data[4].other_skills;
+		renderSkills_Other(other_skl,parent_div,"Other Skills");
+	}
+	
+}
+
+function renderSkills_Other(data,parent,heading){
+
+	var div = document.createElement("div");
+	div.classList.add("child-skills-div");
+	parent.appendChild(div);
+
+	var h3 = document.createElement("h3");
+	h3.innerHTML = heading;
+	h3.classList.add("child-skills-heading");
+	div.appendChild(h3);
+
+	var ul_list = document.createElement("ul");
+	ul_list.classList.add("child-skills-ul");
+	div.appendChild(ul_list);
+
+	for(let i=0; i < data.length;i++){
+		var list=document.createElement("li");
+		list.classList.add("child-skill-li");
+		ul_list.appendChild(list);
+
+		renderTopSkill(list,data[i]);
+	}
+}
+
+function renderShowMore(inner_skills){
+
+	var div = document.createElement("div");
+	div.classList.add("show-more-div");
+	div.setAttribute("id","show-more-div");
+	inner_skills.appendChild(div);
+
+	var span = document.createElement("span");
+	span.innerHTML = "Show More";
+	span.classList.add("show-more-span");
+	span.setAttribute("id","show-more");
+	div.appendChild(span);
+
+	var i = document.createElement("i");
+	i.classList.add('fa', 'fa-chevron-down');
+	i.classList.add("show-more-i");
+	i.setAttribute("aria-hidden","true");
+	i.setAttribute("id","show-more");
+	div.appendChild(i);
 }
 
 function clearChild(){
