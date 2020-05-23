@@ -1,4 +1,11 @@
-var body=document.getElementById("body");
+if(document.body.id === "profile"){
+	var body=document.getElementById("profile");
+}
+else{
+	var body=document.getElementById("body");
+}
+
+
 var user=document.getElementById("user-details");
 var side_menu=document.getElementById("side-menu");
 var overlay=document.getElementById("overlay");
@@ -69,20 +76,30 @@ document.getElementById("ip").addEventListener("blur",function(){
 document.getElementById("header").addEventListener("click",render);
 
 document.getElementById("hide").addEventListener("click",hide_side_bar);
+	
+	if(document.body.id != "profile"){
+		document.getElementById("down-aside").addEventListener("click",render_ul);
+		document.getElementById("sort-by").addEventListener("click",render_sort);
 
-document.getElementById("down-aside").addEventListener("click",render_ul);
-
-document.getElementById("sort-by").addEventListener("click",render_sort);
 
 document.getElementById("news").addEventListener("click",news_render);
 
 document.getElementById("footer").addEventListener("click",footer_render);
-
 document.getElementById("start-a-post").addEventListener("click",render_post_block);
 
 document.getElementById("start-a-post-overlay").addEventListener("click",render_post);
 
 document.getElementById("text-area").addEventListener("keypress",makePost);
+	}
+
+
+
+
+
+
+
+
+
 
 
 function makePost(event){
@@ -120,11 +137,13 @@ event.stopPropagation();
 			event.stopPropagation();
 			show_user();
 			hide_side_bar();
-			if(spa_block.style.display === "block"){
+			if(document.body.id != "profile"){
+					if(spa_block.style.display === "block"){
 				spa_block.style.display = "block";
 				start_a_post.style.display="none";
 				overlay.classList.add('overlay');
 			}	
+			}
 		}
 		else{
 			hide_user();
@@ -158,10 +177,12 @@ function show_side_bar(){
 	overlay.classList.add('overlay-second');
 	side_menu.style.right="0px";
 	hide_btn.style.display="block";
-	if(spa_block.style.display==="block"){
+	if(document.body.id != "profile"){
+		if(spa_block.style.display==="block"){
 		spa_block.style.display="block";
 		overlay.classList.add('overlay');	
 		start_a_post.style.display="none";
+	}
 	}
 
 }
@@ -566,12 +587,21 @@ document.addEventListener("click",hide);
 
 
 function hide(event){
-
-
+	
 	user.style.display="none";
 
-	sort.style.display = "none";
+	if(document.body.id != "profile"){
+		sort.style.display = "none";
+		spa_block.style.display="none";
+		start_a_post.style.display="block";	
 
+
+		privacy_block.style.display="none";
+		privacy_icon.classList.remove('rotate');
+
+		business_block.style.display="none";
+		business_icon.classList.remove('rotate');
+	}
 
 	body.classList.remove('over');
 	side_menu.style.right="-380px";
@@ -579,16 +609,7 @@ function hide(event){
 	overlay.classList.remove('overlay');
 	overlay.classList.remove('overlay-second');
 
-	spa_block.style.display="none";	
-	start_a_post.style.display="block";
-	overlay.classList.remove('overlay');	
-
-
-	privacy_block.style.display="none";
-	privacy_icon.classList.remove('rotate');
-
-	business_block.style.display="none";
-	business_icon.classList.remove('rotate');
+	overlay.classList.remove('overlay');
 
 }
 

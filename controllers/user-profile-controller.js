@@ -26,7 +26,7 @@ function render_skill_block(event){
 				if(!parent.children[1].classList.contains("rotate-i-skill")){
 					parent.children[1].classList.add("rotate-i-skill");
 				}
-			parent.children[0].innerText="Show Less";		
+			parent.children[0].innerText="Show less";		
 		}
 		else{
 			parent.children[0].innerText="Show More";

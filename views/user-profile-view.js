@@ -5,7 +5,7 @@ class UserProfileRenderView{
 	getId(){
 		return this.id;
 	}
-	renderProfile(info,data){
+	/*renderProfile(info,data){
 		for(let i=0; i<data.length;i++){
 			if(data[i].userId === info){
 				//console.log(data[i].userId);
@@ -14,17 +14,23 @@ class UserProfileRenderView{
 				break;
 			}
 		}
-	}
+	}*/
 }
 
 function renderingProfile(data){
 	console.log("renderProfile",data);
-	hidePostsection();
+	if(document.body.id != "profile"){
+		hidePostsection();
+	}
+	//hidePostsection();
 
 	var parent_section = document.createElement("div");
 	parent_section.setAttribute("id",data.userId);
 	parent_section.classList.add("clearfix");
-	view_profile.getId().appendChild(parent_section);
+	//view_profile.getId().appendChild(parent_section);
+	const parentid = document.getElementById("user-profile-page");
+	parentid.appendChild(parent_section);
+
 
 	var inner_div = document.createElement("div");
 	inner_div.classList.add("inner");
@@ -112,6 +118,12 @@ function renderElements(parent_div,data){
 	//renderSkills_Block(inner_skills,data.skills);
 
 	renderShowMore(inner_skills);
+
+	var intrest_block = document.createElement("div");
+	intrest_block.classList.add("intrest_block-div");
+	parent_div.appendChild(intrest_block);
+	renderIntrest_Block(intrest_block,data);
+
 }
 
 function createMsgMore(bottom){
@@ -809,6 +821,18 @@ function renderSkills_Other(data,parent,heading){
 	h3.classList.add("child-skills-heading");
 	div.appendChild(h3);
 
+	if(heading === "Other Skills"){
+		var i = document.createElement("i");
+		i.classList.add("fa", "fa-question-circle-o");
+		i.classList.add("i-skills-question");
+		div.appendChild(i);
+
+		var span =document.createElement("span");
+		span.innerHTML = "These skills do not currently fit under the available categories";
+		span.classList.add("i-skills-question-span");
+		i.appendChild(span);
+	}
+
 	var ul_list = document.createElement("ul");
 	ul_list.classList.add("child-skills-ul");
 	div.appendChild(ul_list);
@@ -843,6 +867,76 @@ function renderShowMore(inner_skills){
 	div.appendChild(i);
 }
 
+function renderIntrest_Block(parent,data){
+	var head = document.createElement("div");
+	parent.appendChild(head);
+
+	var h2 = document.createElement("h2");
+	h2.innerHTML = data.interests;
+	h2.classList.add("h2-skill");
+	head.appendChild(h2);
+
+	var ul_interest = document.createElement("ul");
+	ul_interest.classList.add("ul-interest-blk");
+	parent.appendChild(ul_interest);
+
+	var interest = data.listofinterests;
+	var l = data.listofinterests.length;
+	
+	for(let i=0 ;i < interest.length;i++){
+		if(i === 6){
+			break;
+		}
+		else{
+			var li = document.createElement("li");
+			li.classList.add("li-intrest");
+			ul_interest.appendChild(li);
+			createIntrest(li,interest[i]);
+		}
+	}
+
+	var div = document.createElement("div");
+	div.classList.add("show-more-div");
+	div.setAttribute("id","show-more-div");
+	parent.appendChild(div);
+
+	var span = document.createElement("span");
+	span.innerHTML = "See all";
+	span.classList.add("show-more-span");
+	span.setAttribute("id","show-more");
+	div.appendChild(span);
+}
+
+function createIntrest(parent,data){
+	var a = document.createElement("a");
+	a.href="#";
+	a.classList.add("list-a-interst");
+	parent.appendChild(a);
+
+	var div = document.createElement("div");
+	div.classList.add("div-image");
+	a.appendChild(div);
+
+	var img = document.createElement("img");
+	img.src = data.image;
+	img.classList.add("intrest-image");
+	div.appendChild(img);
+
+	var div_right = document.createElement("div");
+	div_right.classList.add("div-right-side");
+	a.appendChild(div_right);
+
+	var h3 = document.createElement("h3");
+	h3.innerHTML = data.name;
+	h3.classList.add("h3-intrest-head");
+	div_right.appendChild(h3)
+
+	var span = document.createElement("span");
+	span.innerHTML = data.follower;
+	span.classList.add("span-intrest-head");
+	div_right.appendChild(span)
+}
+
 function clearChild(){
 	var l = view_profile.getId();
 	if(l.childElementCount === 1){
@@ -851,10 +945,11 @@ function clearChild(){
 }
 
 function hidePostsection(){
-	var section =document.getElementById("post-section");
+	/*var section =document.getElementById("post-section");
 	var profile =document.getElementById("user-profile-page");
 	
 	if(!section.classList.contains('post-section')){
 		section.classList.add('post-section');
-	}
+	}*/
+	console.log("yesh")
 }

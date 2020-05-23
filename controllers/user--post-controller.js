@@ -15,13 +15,31 @@ class ControllerPost{
 
 const rootElement = document.getElementById('renderPost');
 
-rootElement.addEventListener("click",user_Profile);
+if(document.body.id != "profile"){
+	rootElement.addEventListener("click",user_Profile);
+
+}
+//rootElement.addEventListener("click",user_Profile);
 
 function user_Profile(event){
 	event.stopPropagation();
-	console.log(controller_profile.profile_data());
+	//console.log(controller_profile.profile_data());
+	//console.log(event.target.parentNode)
+	//console.log(event_info)
+	//console.log(_info)
+	
 	var event_info = event.target.parentNode.id;
-	view_profile.renderProfile(event_info,controller_profile.profile_data());
+	
+	
+	var _info = event.target.parentNode.parentNode;
+
+	if(_info.localName === "a"){
+		_info.href = "profile.html?user"+"="+event_info;
+		_info.target="_blank";
+	}
+
+	//view_profile.renderProfile(event_info,controller_profile.profile_data());
+	
 
 }
 

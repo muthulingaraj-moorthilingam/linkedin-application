@@ -11,6 +11,7 @@
 	margin-bottom: 8px;
 	display: flex;
 	cursor: pointer;
+	text-decoration:none;
 }
 .top-logo{
 	width: 44px;

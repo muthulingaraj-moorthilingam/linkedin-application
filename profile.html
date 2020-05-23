@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LinkedIn - application</title>
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="icon" type="immage/x-icon" href="image/Logo_ LinkedIn.png">
+	<link rel="stylesheet" type="text/css" href="css/mvc-style.css">
+	<link rel="stylesheet" type="text/css" href="css/mvc-profile-style.css">
+</head>
+<body id="profile">
+	<div id="overlay"></div>
+	<div id="linkedin">
+		<div class="header navbar" id="header">
+			<div class="container clearfix">
+				<div id="left-side" class="clearfix">
+					<div class="logo clearfix">
+						<a href="#" class="img"><img src="image/Logo_ LinkedIn.png"></a>
+					</div>
+					<div id="search-main" class="clearfix">	
+						<div class="search clearfix" id="search">
+							<form class="input clearfix" id="form">
+								<input type="text" class="ip-bar" name="input" placeholder="Search" id="ip">
+							</form>	
+							<a href="#" class="search-icon" id="icon_a">
+								<i class="fa fa-search"></i>
+							</a>
+							<span class="icon" id="licon">
+								<img src="image/Icon_ Magnifier.png">
+							</span>	
+						</div>
+						<div id="search-filter">
+							<ul id="content">
+								<li class="li">
+									<a href="#" class="content-a">People</a>
+								</li>
+								<li class="li">
+									<a href="#" class="content-a">Jobs</a>
+								</li>
+								<li class="li">
+									<a href="#" class="content-a">Content</a>
+								</li>
+								<li class="li">
+									<a href="#" class="content-a">Companies</a>
+								</li>
+								<li class="li">
+									<a href="#" class="content-a">Schools</a>
+								</li>
+								<li class="li">
+									<a href="#" class="content-a">Groups</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="right-side" class="clearfic">
+					<ul class="icon-navbar clearfix">
+						<li class="icon-li">
+							<a href="#home" class="li-a" id="home">
+								<span class="li-img" id="home">
+									<img src="image/Home.png" class="icon-img" id="home">
+									<span class="icon-count" style="display: none;"></span>
+								</span>
+								<span class="icon-name" id="home">Home</span>
+							</a>
+						</li>
+						<li class="icon-li">
+							<a href="#" class="li-a">
+								<span class="li-img">
+									<img src="image/My Networks.png" class="icon-img">
+									<span class="icon-count" style="display: none;"></span>
+								</span>
+								<span class="icon-name">My Network</span>
+							</a>
+						</li>
+						<li class="icon-li">
+							<a href="#" class="li-a">
+								<span class="li-img">
+									<img src="image/Jobs .png" class="icon-img">
+									<span class="icon-count" style="display: none;"></span>
+								</span>
+								<span class="icon-name">Jobs</span>
+							</a>
+						</li>
+						<li class="icon-li">
+							<a href="#" class="li-a">
+								<span class="li-img">
+									<img src="image/Messaging.png" class="icon-img">
+									<span class="icon-count" style="display: none;"></span>
+								</span>
+								<span class="icon-name">Messaging</span>
+							</a>
+						</li>
+						<li class="icon-li">
+							<a href="#" class="li-a">
+								<span class="li-img">
+									<img src="image/Notifications.png" class="icon-img">
+									<span class="icon-count" style="display: none;"></span>
+								</span>
+								<span class="icon-name">Notifications</span>
+							</a>
+						</li>
+						<li class="icon-li" id="user-a">
+							<div class="li-a us" id="user-a" style="cursor: pointer;">
+								<span class="user" id="user-a"></span>
+								<div class="mr">
+									<span class="mr-s" id="user-a">Me</span>
+								<span class="mr-a"><i class="fa fa-2x fa-caret-down" id="user-a"></i>
+								</span>
+								</div>
+							</div>
+									<div id="user-details" style="display: none;">
+										<div id="user-profile" class="clearfix">
+											<div class="top clearfix">
+												<div class="img-user">
+													<img src="image/account.png" id="usp-img">
+												</div>
+												<div class="name-user clearfix">
+													<span id="user-name">muthulingaraj moorthilingam</span>
+													<span id="user-des">searching</span>
+												</div>
+											</div>
+											<div class="buttom">
+												<a href="#" class="viewprofile">
+													View profile
+												</a>
+											</div>
+										</div>
+										<div id="list">
+											<a href="#" class="active list-a  ">ACCOUNT</a>
+												<a href="#" class="list-a ho mart">
+												Settings &amp; Privacy
+												</a>
+											<a href="#" class="list-a ho">Help</a>
+											<a href="#" class="list-a mab ho">Language</a>
+											<a href="#" class="active list-a">MANAGE</a>
+											<a href="#" class="list-a mart ho">Posts &amp; Activity</a>
+											<a href="#" class="list-a   ho">Job posting account</a>
+										<a href="#" class="list-a mart ho bor">Sign out</a>
+									</div>
+								</div>
+						</li>
+						<li class="icon-li line">
+							<a href="#" class="li-a ho-a" id="mm">
+								<div class="more clearfix" id="mm">
+									<span class="more-span1" id="mm"></span>
+									<span class="more-span2" id="mm"></span>
+									<span class="more-span3" id="mm"></span>
+								</div>
+								<div class="mr" id="mm">
+									<span class="mr-s ma" id="mm">Work</span>
+									<span class="mr-a co"><i class="fa fa-2x fa-caret-down" id="mm"></i></span>
+								</div>
+							</a>
+						</li>
+						<li class="icon-li free-li">
+							<div class="free">
+								<a href="#" class="free-a">
+								<span class="s1">Free Trial: Job</span>
+								<span class="s2">Search Smarter</span>
+								</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+		<div id="main-side">
+			
+			<div id="side-menu" style="right: -380px;">
+				<div class="button-span" id="hide" style="display: none;"></div>
+				<div id="inner-block">
+					<div class="nav">
+						<div class="view">
+							<div class="name">
+								Visit more LinkedIn products
+							</div>
+							<div class="products">
+								<ul class="products-ul clearfix">
+									<li class="products-li">
+										<a href="#" class="products-a">
+											<span class="products-icon bg-img learning">
+											</span>
+											<span class="p-icon-name">Learning</span>
+										</a>
+									</li>
+									<li class="products-li">
+										<a href="#" class="products-a">
+											<span class="products-icon bg-img insights">
+												
+											</span>
+											<span class="p-icon-name">Insights</span>
+										</a>
+									</li>
+									<li class="products-li">
+										<a href="#" class="products-a">
+											<span class="products-icon bg-img postajob">
+												
+											</span>
+											<span class="p-icon-name">Post a job</span>
+										</a>
+									</li>
+									<li class="products-li">
+										<a href="#" class="products-a">
+											<span class="products-icon bg-img advertise">
+												
+											</span>
+											<span class="p-icon-name">Advertise</span>
+										</a>
+									</li>
+									<li class="products-li">
+										<a href="#" class="products-a">
+											<span class="products-icon bg-img groups">
+												
+											</span>
+											<span class="p-icon-name">Groups</span>
+										</a>
+									</li>
+									<li class="products-li">
+										<a href="#" class="products-a">
+											<span class="products-icon bg-img profinder">
+												
+											</span>
+											<span class="p-icon-name">ProFinder</span>
+										</a>
+									</li>
+									<li class="products-li">
+										<a href="#" class="products-a">
+											<span class="products-icon bg-img salary">
+												
+											</span>
+											<span class="p-icon-name">Salary</span>
+										</a>
+									</li>
+									<li class="products-li">
+										<a href="#" class="products-a">
+											<span class="products-icon bg-img slideshare">
+												
+											</span>
+											<span class="p-icon-name">Slideshare</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="second-view">
+							<div class="name">
+								LinkedIn business services
+							</div>
+							<ul class="second-view-ul">
+								<li class="second-view-li">
+									<a href="#" class="second-view-a">
+										<span class="second-view-sp">
+											Talent Solutions
+										</span>
+										<div class="second-view-div">
+											Find, attract and recruit talent
+										</div>
+									</a>
+								</li>
+								<li class="second-view-li">
+									<a href="#" class="second-view-a">
+										<span class="second-view-sp">
+											Sales Solutions
+										</span>
+										<div class="second-view-div">
+											Unlock sales opportunities
+										</div>
+									</a>
+								</li>
+								<li class="second-view-li">
+									<a href="#" class="second-view-a">
+										<span class="second-view-sp">
+											Post a job
+										</span>
+										<div class="second-view-div">
+											Get your job in front of quality candidates
+										</div>
+									</a>
+								</li>
+								<li class="second-view-li">
+									<a href="#" class="second-view-a">
+										<span class="second-view-sp">
+											Marketing Solutions
+										</span>
+										<div class="second-view-div">
+											Acquire customers and grow your business
+										</div>
+									</a>
+								</li>
+								<li class="second-view-li">
+									<a href="#" class="second-view-a">
+										<span class="second-view-sp">
+											Learning Solutions
+										</span>
+										<div class="second-view-div">
+											Develop talent across your organization
+										</div>
+									</a>
+								</li>
+							</ul>
+							<div class="name last">
+								Create a Company Page
+								<span class="plus"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="main-contant-page">
+			<div class="container clearfix">
+				<div style="height: 49px"></div>
+				<div id="user-profile-page" class="clearfix"></div>
+				
+		</div>
+	</div>
+	
+	
+	<script type="text/javascript" src="models/post-model.js"></script>
+	<script type="text/javascript" src="views/user-post-view.js"></script> 
+	<script type="text/javascript" src="controllers/user--post-controller.js"></script>
+
+	<script type="text/javascript" src="models/user-profile-model.js"></script>
+	<script type="text/javascript" src="views/user-profile-view.js"></script> 
+	<script type="text/javascript" src="controllers/user-profile-controller.js"></script>
+
+	<script type="text/javascript" src="javascript/main-index.js"></script> 
+	<script type="text/javascript" src="javascript/index.js"></script> 
+
+	<script type="text/javascript" src="javascript/common-query.js"></script> 
+	
+
+</body>
+</html>

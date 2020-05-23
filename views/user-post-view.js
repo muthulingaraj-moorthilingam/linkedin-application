@@ -18,12 +18,15 @@ class RenderView{
 function renderingView(data){
 	var _parent_div= document.createElement("div");
 		_parent_div.setAttribute("class","parent-div");
-		_view_post.getId().appendChild(_parent_div);
+		//_view_post.getId().appendChild(_parent_div);
+		const parentElement = document.getElementById("renderPost");
+		parentElement.appendChild(_parent_div);
 		
 	var _head_ = document.createElement("a");
 		_head_.classList.add('top-part');
 		_head_.setAttribute("id",data.userId);
-		//_head_.href=;
+		//_head_.href="profile.html?user"+"="+data.userId;
+		//_head_.target="_parent";
 		//_head_.setAttribute("id","user-profile-page");
 
 	var _user_profile_details = document.createElement('div')
