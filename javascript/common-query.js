@@ -25,7 +25,9 @@ function querySetting(event){
 function windowLoading(){
 
 	var uRl_string = window.location.href;
-
+	
+	var pathName = window.location.pathname +"/index.hrml";
+	
 	var findHash = uRl_string.split("index.html")[1];
 
 
