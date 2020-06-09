@@ -23,10 +23,10 @@ function querySetting(event){
 }
 
 function windowLoading(){
-
-	var uRl_string = window.location.href;
 	
-	window.location.pathname += "index.hrml";
+	window.location.pathname += "index.html";
+	
+	var uRl_string = window.location.href;
 	
 	var findHash = uRl_string.split("index.html")[1];
 
