@@ -25,6 +25,7 @@ function renderingView(data){
 	var _head_ = document.createElement("a");
 		_head_.classList.add('top-part');
 		_head_.setAttribute("id",data.userId);
+		_head_.href="#profile?user=";
 		//_head_.href="profile.html?user"+"="+data.userId;
 		//_head_.target="_parent";
 		//_head_.setAttribute("id","user-profile-page");

@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/mvc-style.css">
 	<link rel="stylesheet" type="text/css" href="css/mvc-profile-style.css">
 </head>
-<body id="body" >
+<body id="body" onload="querySetting(event)">
 	<div id="overlay"></div>
 	<div id="linkedin">
 		<div class="header navbar" id="header">
@@ -57,7 +57,7 @@
 				<div id="right-side" class="clearfic">
 					<ul class="icon-navbar clearfix" >
 						<li class="icon-li">
-							<a href="index.html" class="li-a" id="home">
+							<a href="#home" class="li-a" id="home">
 								<span class="li-img" id="home">
 									<img src="image/Home.png" class="icon-img" id="home">
 									<span class="icon-count" style="display: none;"></span>
@@ -313,8 +313,8 @@
 		<div id="main-contant-page">
 			<div class="container clearfix">
 				<div style="height: 49px"></div>
-				<div id="user-profile-page" class="clearfix"></div>
-				<section id="post-section" class="clearfix">
+				<div id="user-profile-page" class="clearfix hide-profile"></div>
+				<section id="post-section" class="clearfix show-post">
 				<div id="aside">
 					<div class="top-aside">
 						<div class="identity-profile">

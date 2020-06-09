@@ -77,7 +77,6 @@ document.getElementById("header").addEventListener("click",render);
 
 document.getElementById("hide").addEventListener("click",hide_side_bar);
 	
-	if(document.body.id != "profile"){
 		document.getElementById("down-aside").addEventListener("click",render_ul);
 		document.getElementById("sort-by").addEventListener("click",render_sort);
 
@@ -90,8 +89,6 @@ document.getElementById("start-a-post").addEventListener("click",render_post_blo
 document.getElementById("start-a-post-overlay").addEventListener("click",render_post);
 
 document.getElementById("text-area").addEventListener("keypress",makePost);
-	}
-
 
 
 
@@ -153,7 +150,7 @@ event.stopPropagation();
 		hide_user();
 		var _post_section = document.getElementById("post-section");
 		var _profile_section = document.getElementById("user-profile-page");
-		changePage(_post_section,_profile_section);
+		//changePage(_post_section,_profile_section);
 	}
 }
 
@@ -612,4 +609,3 @@ function hide(event){
 	overlay.classList.remove('overlay');
 
 }
-

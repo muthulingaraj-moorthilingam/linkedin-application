@@ -5,7 +5,7 @@ class UserProfileRenderView{
 	getId(){
 		return this.id;
 	}
-	/*renderProfile(info,data){
+	renderProfile(info,data){
 		for(let i=0; i<data.length;i++){
 			if(data[i].userId === info){
 				//console.log(data[i].userId);
@@ -14,7 +14,7 @@ class UserProfileRenderView{
 				break;
 			}
 		}
-	}*/
+	}
 }
 
 function renderingProfile(data){
@@ -951,5 +951,5 @@ function hidePostsection(){
 	if(!section.classList.contains('post-section')){
 		section.classList.add('post-section');
 	}*/
-	console.log("yesh")
+	console.log("")
 }
