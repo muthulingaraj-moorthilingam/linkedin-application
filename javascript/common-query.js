@@ -24,15 +24,13 @@ function querySetting(event){
 
 function windowLoading(){
 	
-	window.location.pathname += "index.html";
-	
 	var uRl_string = window.location.href;
 	
 	var findHash = uRl_string.split("index.html")[1];
 
 
 	if(findHash === ""){
-		window.location.hash = "index.html/#home";
+		window.location.hash = "#home";
 		show_and_hide("home");
 	}
 	else{
