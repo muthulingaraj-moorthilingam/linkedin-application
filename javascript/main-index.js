@@ -1,6 +1,7 @@
 var documentBody = document.body.id;
 
 
+
 	var model_data;
 
 	var model_post = new UserPostdata(model_data);
@@ -23,7 +24,7 @@ var documentBody = document.body.id;
 
 
 
-switch(documentBody){
+/*switch(documentBody){
 	case 'body':
 		postDataApiCall();
 		break;
@@ -33,15 +34,13 @@ switch(documentBody){
 	default:
 		console.log("Not Found");
 }
+*/
 
-
-function postDataApiCall(){
 
 	if(model_post.getData() === undefined){
 
 		fetchUserData("https://testapi.io/api/muthu/https://testapi.io/api/muthu/linkedin/user/post")
 		.then(function(data){
-			//console.log(data);
 			model_post.setData(data);
 			fetchData(_controller_post);
 		})
@@ -54,22 +53,22 @@ function postDataApiCall(){
 
 		_controller_post.renderPost();
 	}
-}
+
+
 function fetchData(){
 
  	_controller_post.renderPost();
  }
 
  	
-function profileDataApiCall(){
 
-	const url = "https://testapi.io/api/muthuvijay/muthu/linkedin/user/profile";
+
+const url = "https://testapi.io/api/muthuvijay/muthu/linkedin/user/profile";
 	
  if(model_profile.getData() === undefined){
  	fetchProfile(url)
  	.then(function(data){
  		model_profile.setData(data);
-
  		sentData();
  	})
  	.catch(function(error){
@@ -77,6 +76,48 @@ function profileDataApiCall(){
  	});
  }
 
+function sentData(){
+ 	
+ 	controller_profile.profile_data();
+ }
+
+function show_and_hide(type){
+
+	if(type === "profile"){
+		show_and_hide_Profile();
+	}
+	else if(type === "home"){
+		show_and_hide_HomePost();
+	}
 }
 
- 
+function show_and_hide_Profile(){
+
+	var post_Section = document.getElementById("post-section");
+
+	if(post_Section.classList.contains('show-post')){
+		post_Section.classList.remove('show-post');
+		post_Section.classList.add('hide-post');
+		if(view_profile.getId().classList.contains('hide-profile')){
+			view_profile.getId().classList.remove('hide-profile');
+			view_profile.getId().classList.add('show-profile')
+		}
+	}
+}
+
+function show_and_hide_HomePost(){
+
+	var profile_Section = document.getElementById("user-profile-page");
+
+	var post_Section = document.getElementById("post-section");
+
+	if(view_profile.getId().classList.contains('show-profile')){
+		view_profile.getId().classList.remove('show-profile');
+		view_profile.getId().classList.add('hide-profile');
+
+		if(post_Section.classList.contains('hide-post')){
+			post_Section.classList.remove('hide-post');
+			post_Section.classList.add('show-post');
+		}
+	}
+}

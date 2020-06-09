@@ -109,3 +109,15 @@
 .user-profile-page{
 	display: none;
 }
+.hide-post{
+	display: none;
+}
+.show-post{
+	display: block;
+}
+.show-profile{
+	display: block;
+}
+.hide-profile{
+	display: none;
+}

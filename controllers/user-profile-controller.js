@@ -6,6 +6,9 @@ class UserProfileController{
 	profile_data(){
 		return this.model.getData();
 	}
+	getView(){
+		return this.view;
+	}
 }
 
 var user_data_;

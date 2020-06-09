@@ -1,0 +1,23 @@
+{
+  "name": "linkedin-application",
+  "version": "1.0.0",
+  "description": "Linkedin-model",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muthulingaraj-moorthilingam/linkedin-application.git"
+  },
+  "keywords": [
+    "likedin-app"
+  ],
+  "author": "muthulingaraj moorthilingam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/muthulingaraj-moorthilingam/linkedin-application/issues"
+  },
+  "homepage": "https://github.com/muthulingaraj-moorthilingam/linkedin-application#readme",
+  "dependencies": {}
+}

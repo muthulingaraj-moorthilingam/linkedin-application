@@ -3,7 +3,9 @@ class ControllerPost{
 		this.model=model;
 		this.view=view;
 	}
-
+	parentId(){
+		return this.view
+	}
 	renderPost(){
 		this.view.renderView(this.model);
 	}
@@ -14,7 +16,8 @@ class ControllerPost{
 }
 
 const rootElement = document.getElementById('renderPost');
-
+rootElement.addEventListener("click",user_Profile);
+const postElement = document.getElementById("post-section");
 if(document.body.id != "profile"){
 	rootElement.addEventListener("click",user_Profile);
 
@@ -23,27 +26,51 @@ if(document.body.id != "profile"){
 
 function user_Profile(event){
 	event.stopPropagation();
-	//console.log(controller_profile.profile_data());
-	//console.log(event.target.parentNode)
-	//console.log(event_info)
-	//console.log(_info)
 	
 	var event_info = event.target.parentNode.id;
-	
-	
+
 	var _info = event.target.parentNode.parentNode;
 
 	if(_info.localName === "a"){
-		_info.href = "profile.html?user"+"="+event_info;
-		_info.target="_blank";
+
+		_info.href += event_info;
+		
 	}
-
-	//view_profile.renderProfile(event_info,controller_profile.profile_data());
-	
-
+	//view_profile.renderProfile(event_info,controller_profile.profile_data())
 }
 
+function clearChild(){
+	var parent = controller_profile.getView();
+	
+	var parentId = parent.id;
 
+	var count = parentId.childElementCount;
+
+	if(count === 0){
+		return;
+	}
+	else{
+		parentId.removeChild(parentId.children[0]);
+	}
+}
+
+function profile_page_controller(userId){
+	var parent = controller_profile.getView();
+	
+	var parentId = parent.id;
+
+	var count = parentId.childElementCount;
+
+	if(count === 0){
+		view_profile.renderProfile(userId,controller_profile.profile_data());
+	}
+	else {
+		if(count > 0){
+			parentId.removeChild(parentId.children[0]);
+			view_profile.renderProfile(userId,controller_profile.profile_data());
+		}
+	}
+}
 
 
 /*
