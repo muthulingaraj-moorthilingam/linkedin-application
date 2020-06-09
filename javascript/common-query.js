@@ -30,7 +30,7 @@ function windowLoading(){
 
 
 	if(findHash === ""){
-		window.location.hash = "#home";
+		window.location.hash = "index.html/#home";
 		show_and_hide("home");
 	}
 	else{
