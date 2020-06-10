@@ -20,16 +20,17 @@ class UserProfileRenderView{
 function renderingProfile(data){
 	console.log("renderProfile",data);
 	if(document.body.id != "profile"){
-		hidePostsection();
+		//hidePostsection();
 	}
 	//hidePostsection();
 
 	var parent_section = document.createElement("div");
 	parent_section.setAttribute("id",data.userId);
 	parent_section.classList.add("clearfix");
-	//view_profile.getId().appendChild(parent_section);
-	const parentid = document.getElementById("user-profile-page");
-	parentid.appendChild(parent_section);
+	parent_section.classList.add("scroll-snap");
+	view_profile.getId().appendChild(parent_section);
+	//const parentid = document.getElementById("user-profile-page");
+	//parentid.appendChild(parent_section);
 
 
 	var inner_div = document.createElement("div");
