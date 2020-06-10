@@ -1,14 +1,20 @@
 
 window.addEventListener("hashchange",querySetting);
-
 /*var body = document.getElementById('body');
-
 body.addEventListener("load",querySetting);
 */
 
 function querySetting(event){
 	switch(event.type){
-		case "load" : windowLoading();
+		case "load" : 
+			if(window.location.pathname === "/"){
+				window.location.pathname = "index.html";
+				windowLoading();
+			}
+			else{
+				windowLoading();
+				return;
+			}
 			break;
 		case "hashchange" : 
 			if(window.location.hash === "#home"){
@@ -38,7 +44,10 @@ function windowLoading(){
 
 		if(search === "#profile"){
 			var userId =  uRl_string.split("=")[1];
-			profileRendering(userId);
+			show_and_hide("profile");
+			scrollBar();
+			aPiCall(userId);
+			//profileRendering(userId);
 		}
 	}
 }
@@ -47,12 +56,15 @@ function profileRendering(userId){
 
 	var data = controller_profile.profile_data();
 	
-	show_and_hide("profile");
-
+	//show_and_hide("profile");
+	
 	profile_page_controller(userId);
 
 }
 
+function scrollBar(){
+	window.scrollTo(-100,0);
+}
 
 
 
@@ -62,18 +74,14 @@ function profileRendering(userId){
 
 
 
-/*
-function sentData(){
+
+/*function sentData(){
 
 	profileRender();
 }
-*/
 
 
-
-
-//serach qoery string
-/*function profileRender(){
+function profileRender(){
 	//console.log(window.location.search)
 	var user = window.location.search
 	const prodileId = new URLSearchParams(user);

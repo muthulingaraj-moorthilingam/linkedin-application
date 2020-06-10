@@ -61,7 +61,7 @@ function fetchData(){
  }
 
  	
-
+function aPiCall(userId){
 
 const url = "https://testapi.io/api/muthuvijay/muthu/linkedin/user/profile";
 	
@@ -69,16 +69,21 @@ const url = "https://testapi.io/api/muthuvijay/muthu/linkedin/user/profile";
  	fetchProfile(url)
  	.then(function(data){
  		model_profile.setData(data);
- 		sentData();
+ 		sentData(userId);
  	})
  	.catch(function(error){
  		console.log(error);
  	});
  }
+ else{
+ 	sentData(userId);
+ }
+}
 
-function sentData(){
+function sentData(userId){
  	
  	controller_profile.profile_data();
+ 	profileRendering(userId);
  }
 
 function show_and_hide(type){
