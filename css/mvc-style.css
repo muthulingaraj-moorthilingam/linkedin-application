@@ -6,6 +6,9 @@
     box-shadow: 0 4px 4px -4px grey;
     background-color:#fff; 
 }
+.scroll-snap{
+	scroll-snap-align: start;
+}
 .top-part{
 	padding: 12px 40px 0px 16px;
 	margin-bottom: 8px;
@@ -120,4 +123,8 @@
 }
 .hide-profile{
 	display: none;
+}
+.fixed-element{
+	position: fixed;
+	top: 60px;
 }

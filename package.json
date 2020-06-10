@@ -19,5 +19,7 @@
     "url": "https://github.com/muthulingaraj-moorthilingam/linkedin-application/issues"
   },
   "homepage": "https://github.com/muthulingaraj-moorthilingam/linkedin-application#readme",
-  "dependencies": {}
+  "dependencies": {
+    "node-static": "^0.7.11"
+  }
 }

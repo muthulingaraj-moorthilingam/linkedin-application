@@ -24,6 +24,7 @@ if(document.body.id != "profile"){
 }
 //rootElement.addEventListener("click",user_Profile);
 
+
 function user_Profile(event){
 	event.stopPropagation();
 	
@@ -33,7 +34,15 @@ function user_Profile(event){
 
 	if(_info.localName === "a"){
 
-		_info.href += event_info;
+		var haSh = _info.hash.split("=")[1];
+		if(haSh === ""){
+			_info.href += event_info;
+		}
+		else{
+			return;
+		}
+
+		//_info.href += event_info;
 		
 	}
 	//view_profile.renderProfile(event_info,controller_profile.profile_data())
