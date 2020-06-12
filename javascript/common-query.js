@@ -7,7 +7,7 @@ body.addEventListener("load",querySetting);
 function querySetting(event){
 	switch(event.type){
 		case "load" : 
-			if(window.location.pathname === "/"){
+			if(window.location.pathname === "/" || window.loaction.pathname === "/linkedin-application/"){
 				window.location.pathname = "index.html";
 				windowLoading();
 			}
